@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+            rel="stylesheet">
+        <link
+            href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap"
+            rel="stylesheet">
+        <link
+            href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap"
+            rel="stylesheet">
+        <link
+            href="https://fonts.googleapis.com/css2?family=Allison&display=swap"
+            rel="stylesheet">
+        <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+        <link rel="stylesheet" href="css/home.css">
+        <link rel="stylesheet" href="css/cart.css">
+        <link rel="stylesheet" href="css/profil.css">
+        <title>Accueil</title>
+    </head>
+    <body>
+        <!-- header -->
+        <header class="app-header"></header>
+        <!-- nav -->
+        <nav class="app-nav"></nav>
+        <main class="home-main">
+            <section class="profil-container">
+                <h2>profil</h2>
+                <section class="profil-infos"></section>
+            </section>
+            <section class="cart-container">
+                <div class="cart-header"><h2>Cart</h2></div>
+                <section class="cart-items"></section>
+            </section>
+            <!-- banner -->
+            <section class="banner">
+                <section class="banner-left">
+                    <p>Une plateforme de commerce électronique interentreprises pour le commerce mondial</p>
+                    <h1>Explore Store</h1>
+                    <button type="button" class="btn-explore">Store
+                        &rarr;</button>
+                </section>
+                <figure>
+                    <img src="public/images/watch.png" alt="Montre" />
+                </figure>
+            </section>
+            <!-- new arrival -->
+            <section class="new-arrived">
+                <h1>New arrival &rarr;</h1>
+                <div class="arrival-container"></div>
+            </section>
+            <!-- articles -->
+            <section class="articles-container">
+                <h1>Articles  &rarr;</h1>
+                <!-- slide-zone -->
+                <div class="slider">
+                    <button class="slider-button prev-button">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <div class="articles-items"></div>
+                    <button class="slider-button next-button">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+                <button type="button" class="btn-explore">Store &rarr;</button>
+            </section>
+            <!-- blog -->
+            <article class="zone-blog">
+             <article class="recit-article">
+                <p>Commerce avec confiance de la qualité de la production pour la protection des achats</p>
+             </article>
+             <section class="row-zone">
+               <section class="zone-item-left"> 
+                <p>Obtenez des rabais, des services et des outils sur mesure pour votre scène d'affaires.</p>
+            </section>
+               <section class="zone-item-rigth">
+                <p>Obtenez des rabais, des services et des outils sur mesure pour votre scène d'affaires.</p>
+               </section>
+             </section>
+            </article>
+            <section class="zone-newletter">
+                <h2>NEWSLETTER &rarr;</h2>
+               <input type="email" name="email" placeholder="example@gmail.com" />
+               <button type="button" class="btn-abonner">S'abonner</button>
+             </section>
+        </main>
+        <!-- footer -->
+        <footer class="app-footer"></footer>
+
+        <!-- Les scripts sont placés ici -->
+        <script src="js/layout.js"></script>
+        <script src="js/profil.js"></script>
+        <script src="js/data.js"></script>
+        <script src="js/home.js"></script>
+    </body>
+</html>

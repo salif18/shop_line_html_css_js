@@ -1,0 +1,30 @@
+/* Conteneur Profil et Panier par défaut (cachés) */
+.profil-container{
+    display: none;
+}
+
+.profil-container-active {
+    background: #ffffff;
+    padding: 1rem;
+    border-radius: 20px;
+    border: 1px solid #f0f1f5;
+    display: flex;
+    position: absolute;
+    top: 60px;
+    right: 260px;
+    width: 300px;
+    height: 90vh;
+    z-index: 1;
+    scroll-behavior: smooth;
+}
+
+
+
+/* Réduction de la largeur pour les petits écrans */
+@media (max-width: 768px) {
+    .profil-container-active {
+        right: 20px; /* Réduire l'écart avec le bord droit */
+        width: 90%;   /* Prendre une large portion de l'écran */
+        height: auto; /* S'ajuster au contenu */
+    }
+}

@@ -1,0 +1,92 @@
+/* Conteneur Profil et Panier par défaut (cachés) */
+.cart-container {
+    display: none;
+}
+
+.cart-container-active {
+    background: #ffffff;
+    padding: 1rem;
+    border-radius: 20px;
+    border: 1px solid #f0f1f5;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    right: 260px;
+    width: 300px;
+    height: 90vh;
+    z-index: 1;
+    scroll-behavior: smooth;
+}
+
+.cart-container-active .cart-header {
+    padding: 1rem;
+    border-bottom: 1px solid #f0f1f5;
+}
+
+.cart-container-active h2 {
+    font-size: 1.2rem;
+    margin: 2rem;
+}
+
+.cart-items {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 1rem;
+}
+
+.cards {
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    height: 100px;
+    background: #f0f1f5;
+    border-radius: 8px;
+}
+
+.cards img {
+    width: 50px;
+    height: 50px;
+    margin-right: 1rem;
+}
+
+.cards-info {
+    width: 120px;
+    display: flex;
+    flex-direction: column;
+}
+
+.cards-info h2 {
+    font-size: 1rem;
+    font-family: "Roboto";
+    margin: 0;
+}
+
+.cards-info p {
+    font-size: 1rem;
+    font-family: "Roboto";
+    margin: 0.5rem 0 0;
+}
+
+.cards-btns{
+    width: 100px;
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.btn-minus , .btn-plus{
+    width: 20px;
+    border: 1px solid #121212;
+}
+
+/* Réduction de la largeur pour les petits écrans */
+@media (max-width: 768px) {
+    .cart-container-active {
+        right: 20px;
+        width: 90%;
+        height: auto;
+    }
+}
