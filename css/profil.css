@@ -11,9 +11,9 @@
     display: flex;
     position: absolute;
     top: 60px;
-    right: 260px;
-    width: 300px;
-    height: 90vh;
+    right: 0;
+    width: 310px;
+    height: 99vh;
     z-index: 1;
     scroll-behavior: smooth;
 }
