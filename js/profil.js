@@ -2,6 +2,7 @@
 const profilContainer = document.querySelector(".profil-container");
 const userBtn = document.querySelector(".fa-user");
 
+
 userBtn.addEventListener("click", (e) => {
     e.preventDefault();
 
@@ -22,6 +23,8 @@ userBtn.addEventListener("click", (e) => {
             profilContainer.classList.add("profil-container-active");
         }, 10); // Petite pause pour permettre au navigateur de rafraîchir avant d'ajouter la classe active
 
+        
+      
     }
 });
 

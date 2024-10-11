@@ -25,6 +25,15 @@
     scroll-behavior: smooth;
 }
 
+.profil-container-active .profil-header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 1rem;
+    border-bottom: 1px solid #f0f1f5;
+}
+
 
 
 /* Réduction de la largeur pour les petits écrans */

@@ -9,7 +9,7 @@
 .cart-container-active {
     background: #ffffff;
     opacity: 1;
-    transform: translateY(-20px); /* Le panier est légèrement au-dessus au début */
+    transform: translateY(0px); /* Le panier est légèrement au-dessus au début */
     transition: opacity 0.4s ease, transform 0.4s ease; /* Transition pour le changement d'opacité et de position */
     padding: 1rem;
     border-radius: 10px;
