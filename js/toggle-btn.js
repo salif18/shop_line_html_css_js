@@ -58,7 +58,7 @@ userBtn.addEventListener("click", (e) => {
     }
 });
 
-// Fermer le panier avec l'icône de fermeture
+// Fermer le profil avec l'icône de fermeture
 closeProfil.addEventListener("click", () => {
-    profilContainer.style.display = "none"; // Cache immédiatement le panier lorsque l'utilisateur clique sur l'icône de fermeture
+    profilContainer.style.display = "none"; // Cache immédiatement le profil lorsque l'utilisateur clique sur l'icône de fermeture
 });
