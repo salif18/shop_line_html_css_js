@@ -1,39 +1,86 @@
 /* Conteneur Profil et Panier par défaut (cachés) */
 .profil-container{
     opacity: 0;
-    transform: translateX(20px); /* Le panier est légèrement au-dessus au début */
-    transition: opacity 0.4s ease, transform 0.4s ease; /* Transition pour le changement d'opacité et de position */
+    transform: translateX(50px); /* Le panier est légèrement au-dessus au début */
+    transition: opacity 0.4s ease, transform 0.4s ease;
     display: none;
+    padding: 1rem;
+    border-radius: 10px;
+    border: 1px solid #f0f1f5;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    right: 0px;
+    width: 310px;
+    height: 20vh;
+    scroll-behavior: smooth;
 }
 
 .profil-container-active {
     background: #ffffff;
     opacity: 1;
     transform: translateX(0); /* Le panier est légèrement au-dessus au début */
-    transition: opacity 0.4s ease, transform 0.4s ease; /* Transition pour le changement d'opacité et de position */
+    transition: opacity 0.2s ease, transform 0.4s ease; /* Transition pour le changement d'opacité et de position */
     padding: 1rem;
     border-radius: 10px;
     border: 1px solid #f0f1f5;
     display: flex;
+    align-items: center;
+    justify-content: center;
     flex-direction: column;
     position: absolute;
     top: 60px;
     right: 0px;
     width: 310px;
-    height: 99vh;
+    height: 20vh;
     z-index: 1;
     scroll-behavior: smooth;
 }
 
-.profil-container-active .profil-header{
+.profil-header{
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 10px;
-    padding: 1rem;
+    padding: 0.8rem;
     border-bottom: 1px solid #f0f1f5;
 }
 
+
+.profil-container-active .user-info-row{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.user-photo{
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+    border: 1px solid #f0f1f5;
+}
+
+.user-name-column h2, p{
+    font-size: 0.7rem;
+    font-family: "Montserrat";
+}
+
+.profil-header .close-cart{
+    font-size: 1rem;
+}
+
+.profil-content{
+    margin: 2rem;
+}
+
+.btn-logout{
+    border: none;
+    background: transparent;
+    font-size: 0.8rem;
+    font-family: "Roboto";
+}
 
 
 /* Réduction de la largeur pour les petits écrans */

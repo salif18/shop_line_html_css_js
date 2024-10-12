@@ -73,6 +73,10 @@ body {
     cursor: pointer;
 }
 
+.header-rigth .fa-shopping-cart{
+    color: orangered;
+}
+
 .menu-barre {
     display: none;
 }
@@ -85,6 +89,7 @@ body {
     align-items: center;
     border-top: 1px solid #f0f1f5;
     border-bottom: 1px solid #f0f1f5;
+    background-color: orangered;
     height: 50;
 }
 
@@ -99,7 +104,7 @@ body {
 .app-nav .list-link a {
     font-family: Montserrat, sans-serif;
     font-size: 1rem;
-    color: #121212;
+    color: #f0f1f5;
     font-weight: 500;
     cursor: pointer;
 }
@@ -141,7 +146,7 @@ body {
     width: 200px;
     height: 40px;
     border: none;
-    background: #121212;
+    background: orangered;
     color: #ffffff;
     font-size: 1.1rem;
     font-weight: 500;
@@ -216,6 +221,7 @@ figure img {
 .card-info p {
     font-size: 1rem;
     font-family: Montserrat, sans-serif;
+    color: orangered;
 }
 
 /* Articles Section */
@@ -245,7 +251,7 @@ figure img {
     width: 200px;
     height: 40px;
     border: none;
-    background: #121212;
+    background: orangered;
     color: #ffffff;
     font-size: 1.1rem;
     font-weight: 500;
@@ -253,7 +259,7 @@ figure img {
     transition: background 0.3s ease-in-out;
 }
 
-.articles-container button:hover {
+.articles-container .btn-explore:hover {
     background: #5e5e5e;
 }
 
@@ -293,6 +299,27 @@ figure img {
     height: 100px;
 }
 
+.add-to-cart{
+    padding: 0.2rem;
+    border: none;
+    background-color: transparent;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: grey;
+    font-family: "Montserrat";
+    cursor: pointer;
+}
+
+.add-to-cart:hover{
+    color: rgba(255, 68, 0, 0.651);
+}
+
+.add-to-cart .fa-shopping-cart{
+    color: orangered;
+}
+
+
+
 /* Style pour les boutons du slider */
 .slider-button {
     border: none;
@@ -300,7 +327,7 @@ figure img {
     font-size: 3rem;
     padding: 10px;
     z-index: 10;
-    color: #ffff;
+    color: orangered;
 }
 
 .prev-button {
@@ -320,7 +347,7 @@ figure img {
 }
 
 .slider-button:hover {
-    background-color: #121212;
+    background-color: orangered;
     color: #ffffff;
 }
 
@@ -360,13 +387,14 @@ figure img {
     padding: 1rem;
     border-radius: 20px;
     height: 45vh;
-    background: #f0f1f54d;
+    background: rgb(255, 68, 0);
 }
 
 .zone-item-left,
 .zone-item-rigth p {
     font-size: 1.4rem;
     font-family: "Montserrat";
+    color: #f0f1f5;
 }
 
 .zone-newletter {
@@ -405,7 +433,7 @@ figure img {
     font-size: 1rem;
     color: #ffffff;
     font-family: "Montserrat";
-    background: #121212;
+    background: orangered;
     margin: 1rem;
     cursor: pointer;
 }
