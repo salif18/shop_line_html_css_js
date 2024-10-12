@@ -14,6 +14,8 @@ const displayHeader = () => {
     <ul class="list-link">
      <li><i class="fas fa-shopping-cart"></i></li>
      <li><i class="fas fa-user user-icon"></i></li>
+     <li><a href="./views/login.html">Connexion</a></li>
+     <li><a href="./views/signup.html">S'inscrire</a></li>
     </ul>
      <label for="search"><input id="search" type="search" name="recherche" placeholder="Que voullez-vous ? " /><i class="fas fa-search"></i></label>
     </section>
@@ -26,7 +28,7 @@ const displayNavBar = () => {
     navBar.innerHTML = `
     <ul class="list-link">
      <li><a href="home.html">Home</a></li>
-     <li><a href="../views/shop.html">Store</a></li>
+     <li><a href="./views/shop.html">Store</a></li>
     </ul>
     `;
 }
@@ -39,7 +41,7 @@ const displayFooter = () => {
     </section>
     <ul class="footer-links">
      <li><a href="home.html">Home</a></li>
-      <li><a href="../views/about.html">About</a></li>
+      <li><a href="./views/about.html">About</a></li>
     </ul>
     `;
 }
