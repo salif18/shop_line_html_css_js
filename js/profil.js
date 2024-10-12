@@ -22,9 +22,6 @@ userBtn.addEventListener("click", (e) => {
         setTimeout(() => {
             profilContainer.classList.add("profil-container-active");
         }, 10); // Petite pause pour permettre au navigateur de rafraîchir avant d'ajouter la classe active
-
-        
-      
     }
 });
 
