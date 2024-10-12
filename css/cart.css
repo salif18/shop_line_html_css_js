@@ -14,8 +14,8 @@
     top: 60px;
     right: 0px;
     width: 310px;
-    height: 99vh;
-    z-index: 1;
+    height: 90vh;
+    z-index: 10;
     scroll-behavior: smooth;
     will-change: opacity, transform;
 }
@@ -31,7 +31,7 @@
 }
 
 .close-cart {
-    font-size: 1.5rem;
+    font-size: 1rem;
     cursor: pointer;
 }
 
@@ -39,20 +39,39 @@
     color: rgb(36, 36, 36);
 }
 
-.cart-container h2 {
-    font-size: 1.2rem;
-    margin: 2rem;
+.total-info{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.total-title{
+    display: flex;
+   
+    flex-direction: column;
+}
+
+.total-title h2 {
+    font-size: 0.8rem;
+    font-family: "Roboto";
+}
+
+.total-title p {
+    font-size: 0.8rem;
+    font-family: "Roboto";
 }
 
 .cart-items {
+    max-width: 300px;
     display: flex;
     flex-direction: column;
-    gap: 10px;
-    padding: 1rem;
+    gap: 5px;
+    padding: 0.2rem;
 }
 
-.cards {
-    padding: 1rem;
+.card-cart {
+    overflow: hidden;
     display: flex;
     align-items: center;
     height: 100px;
@@ -60,25 +79,25 @@
     border-radius: 8px;
 }
 
-.cards img {
+.card-cart img {
     width: 50px;
     height: 50px;
-    margin-right: 1rem;
+    margin: 0.5rem;
 }
 
-.cards-info {
-    width: 120px;
+.card-cart-info {
+    max-width: 150px;
     display: flex;
     flex-direction: column;
 }
 
-.cards-info h2 {
+.card-cart-info h2 {
     font-size: 1rem;
     font-family: "Roboto";
     margin: 0;
 }
 
-.cards-info p {
+.card-cart-info p {
     font-size: 1rem;
     font-family: "Roboto";
     margin: 0.5rem 0 0;
@@ -87,7 +106,7 @@
 .qty{
     color: orangered;
 }
-.cards-btns{
+.card-cart-btn{
     width: 100px;
     padding: 1rem;
     display: flex;
@@ -110,11 +129,23 @@
     color: orangered;
 }
 
+.btn-address{
+    padding: 1rem;
+    width: 100%;
+    border: none;
+    background-color: orangered;
+    color: #f0f1f5;
+    font-family: "Roboto";
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 1rem;
+}
+
 /* Réduction de la largeur pour les petits écrans */
 @media (max-width: 768px) {
     .cart-container {
         right: 20px;
         width: 90%;
-        height: auto;
+        height: 90vh;
     }
 }

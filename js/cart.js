@@ -23,14 +23,14 @@ const displayCartData = () => {
 
     cart.map((item) => {
         const div = document.createElement("div");
-        div.classList.add("cards");
+        div.classList.add("card-cart");
         div.innerHTML = `
             <img src=${item.img} alt="${item.name}" />
-            <section class="cards-info">
+            <section class="card-cart-info">
                 <h2>${item.name}</h2>
                 <p>$${item.price}</p>
             </section>
-            <section class="cards-btns">
+            <section class="card-cart-btn">
                 <button class="btn-minus" data-id="${item.id}">-</button>
                 <span class="qty">${item.qty}</span>
                 <button class="btn-plus" data-id="${item.id}">+</button>
