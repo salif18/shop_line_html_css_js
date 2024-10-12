@@ -14,10 +14,12 @@ cartBtn.addEventListener("click", (e) => {
     if (cartContainer.style.display === "none") {
         // Si le panier est caché, on l'affiche avec une animation
         cartContainer.style.display = "flex"; // On passe en affichage "flex" pour montrer le conteneur
+        cartContainer.setAttribute("aria-hidden", "false"); // Le panier est visible
         // Petite pause avant d'appliquer l'opacité et le déplacement pour une animation fluide
         setTimeout(() => {
             cartContainer.style.opacity = 1; // Rend le panier visible (opacité à 1)
             cartContainer.style.transform = 'translateY(0)'; // Replace le panier à sa position d'origine
+            cartContainer.setAttribute("aria-hidden", "true"); // Le panier est caché
         }, 400); // 400 millisecondes de délai avant la transition (correspond à la durée de l'animation en CSS)
     } else {
         // Si le panier est déjà visible, on le cache avec une animation inverse
@@ -42,6 +44,7 @@ userBtn.addEventListener("click", (e) => {
     // Si le conteneur du profil est caché, on l'affiche avec une animation
     if (profilContainer.style.display === "none") {
         profilContainer.style.display = "flex"; // Affiche le conteneur du profil
+        profilContainer.setAttribute("aria-hidden", "false"); // Profil visible
         // Attendre un petit moment avant d'appliquer l'opacité et le déplacement
         setTimeout(() => {
             profilContainer.style.opacity = 1; // Rend le profil visible (opacité à 1)
@@ -54,6 +57,7 @@ userBtn.addEventListener("click", (e) => {
         // Après l'animation, on cache complètement le conteneur du profil
         setTimeout(() => {
             profilContainer.style.display = 'none'; // Masque le conteneur du profil
+            profilContainer.setAttribute("aria-hidden", "true"); // Profil caché
         }, 400); // Pause pour permettre la transition avant de cacher l'élément
     }
 });

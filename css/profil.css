@@ -18,6 +18,7 @@
     height: 20vh;
     z-index: 1;
     scroll-behavior: smooth;
+    will-change: opacity, transform;
 }
 
 .profil-header{

@@ -17,6 +17,7 @@
     height: 99vh;
     z-index: 1;
     scroll-behavior: smooth;
+    will-change: opacity, transform;
 }
 
 
