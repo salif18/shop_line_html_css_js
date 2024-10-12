@@ -1,59 +1,64 @@
-// Recuperation des elements DOM
+// On récupère les éléments nécessaires du DOM (Document Object Model) pour les manipuler par la suite
 const profilContainer = document.querySelector(".profil-container");
 const userBtn = document.querySelector(".fa-user");
 const cartContainer = document.querySelector(".cart-container");
 const cartBtn = document.querySelector(".fa-shopping-cart");
 const closeCartBtn = document.querySelector(".close-cart");
+const closeProfil = document.querySelector(".fa-remove");
 
-
-// click sur le icon Cart
+// Gestion du clic sur l'icône du panier
 cartBtn.addEventListener("click", (e) => {
-    e.preventDefault();
-    profilContainer.classList.add("profil-container");
-    // Vérifie si le panier est actif ou non
-    if (cartContainer.classList.contains("cart-container-active")) {
-        cartContainer.classList.remove("cart-container-active");
-        // Attendre la fin de la transition pour masquer le conteneur
+    e.preventDefault(); // Empêche le comportement par défaut du bouton (par exemple, empêcher la redirection si c'est un lien)
+
+    // Vérifie si le panier est actuellement caché
+    if (cartContainer.style.display === "none") {
+        // Si le panier est caché, on l'affiche avec une animation
+        cartContainer.style.display = "flex"; // On passe en affichage "flex" pour montrer le conteneur
+        // Petite pause avant d'appliquer l'opacité et le déplacement pour une animation fluide
         setTimeout(() => {
-            cartContainer.style.display = "none";
-        }, 400); // Durée de la transition en CSS
+            cartContainer.style.opacity = 1; // Rend le panier visible (opacité à 1)
+            cartContainer.style.transform = 'translateY(0)'; // Replace le panier à sa position d'origine
+        }, 400); // 400 millisecondes de délai avant la transition (correspond à la durée de l'animation en CSS)
     } else {
-        cartContainer.style.display = "flex"; // Affiche le panier avant l'ajout de l'animation
+        // Si le panier est déjà visible, on le cache avec une animation inverse
+        cartContainer.style.opacity = '0'; // Rendre le panier invisible (opacité à 0)
+        cartContainer.style.transform = 'translateY(-100px)'; // Le déplace légèrement vers le haut
+        // Après l'animation, on cache complètement le conteneur
         setTimeout(() => {
-            cartContainer.classList.add("cart-container-active");
-        }, 10); // Pause pour permettre au navigateur de rafraîchir avant d'ajouter la classe active
+            cartContainer.style.display = 'none'; // Masque le conteneur du panier
+        }, 400); // Pause pour laisser l'animation se terminer avant de masquer l'élément
     }
 });
 
 // Fermer le panier avec l'icône de fermeture
 closeCartBtn.addEventListener("click", () => {
-    cartContainer.classList.remove("cart-container-active");
-    setTimeout(() => {
-        cartContainer.style.display = "none";
-    }, 400);
+    cartContainer.style.display = "none"; // Cache immédiatement le panier lorsque l'utilisateur clique sur l'icône de fermeture
 });
 
-
-// click sur icon user
+// Gestion du clic sur l'icône utilisateur
 userBtn.addEventListener("click", (e) => {
-    e.preventDefault();
+    e.preventDefault(); // Empêche le comportement par défaut du bouton
 
-    // Si le profil est actuellement visible
-    if (profilContainer.classList.contains("profil-container-active")) {
-        profilContainer.classList.remove("profil-container-active");
-        // Attendre la fin de la transition pour masquer le conteneur
+    // Si le conteneur du profil est caché, on l'affiche avec une animation
+    if (profilContainer.style.display === "none") {
+        profilContainer.style.display = "flex"; // Affiche le conteneur du profil
+        // Attendre un petit moment avant d'appliquer l'opacité et le déplacement
         setTimeout(() => {
-            profilContainer.style.display = "none";
-        }, 400); // Durée de la transition en CSS
-
+            profilContainer.style.opacity = 1; // Rend le profil visible (opacité à 1)
+            profilContainer.style.transform = 'translateX(0)'; // Replace le profil à sa position d'origine
+        }, 400); // Pause pour une transition fluide
     } else {
-        // Afficher le conteneur du profil avec une animation
-        profilContainer.style.display = "flex"; // Affiche le profil avant d'ajouter la classe active
-
+        // Si le profil est déjà visible, on le cache avec une animation inverse
+        profilContainer.style.opacity = '0'; // Rendre le profil invisible
+        profilContainer.style.transform = 'translateX(10px)'; // Déplace légèrement le profil vers la droite
+        // Après l'animation, on cache complètement le conteneur du profil
         setTimeout(() => {
-            profilContainer.classList.add("profil-container-active");
-        }, 10); // Petite pause pour permettre au navigateur de rafraîchir avant d'ajouter la classe active
-
+            profilContainer.style.display = 'none'; // Masque le conteneur du profil
+        }, 400); // Pause pour permettre la transition avant de cacher l'élément
     }
 });
 
+// Fermer le panier avec l'icône de fermeture
+closeProfil.addEventListener("click", () => {
+    profilContainer.style.display = "none"; // Cache immédiatement le panier lorsque l'utilisateur clique sur l'icône de fermeture
+});

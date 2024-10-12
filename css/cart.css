@@ -1,32 +1,14 @@
 /* Conteneur Profil et Panier par défaut (cachés) */
 .cart-container {
+    overflow-y: scroll;
+    background: #ffffff;
     opacity: 0;
     transform: translateY(-20px); 
     transition: opacity 0.4s ease, transform 0.4s ease; 
+    padding: 1rem;
+    border-radius: 10px;
+    border: 1px solid #f0f1f5;
     display: none;
-    padding: 1rem;
-    border-radius: 10px;
-    border: 1px solid #f0f1f5;
-    display: flex;
-    flex-direction: column;
-    position: fixed;
-    top: 60px;
-    right: 0px;
-    width: 310px;
-    height: 99vh;
-    scroll-behavior: smooth;
-}
-
-.cart-container-active {
-    overflow-y: scroll;
-    background: #ffffff;
-    opacity: 1;
-    transform: translateY(0px); /* Le panier est légèrement au-dessus au début */
-    transition: opacity 0.4s ease, transform 0.4s ease; /* Transition pour le changement d'opacité et de position */
-    padding: 1rem;
-    border-radius: 10px;
-    border: 1px solid #f0f1f5;
-    display: flex;
     flex-direction: column;
     position: fixed;
     top: 60px;
@@ -56,7 +38,7 @@
     color: rgb(36, 36, 36);
 }
 
-.cart-container-active h2 {
+.cart-container h2 {
     font-size: 1.2rem;
     margin: 2rem;
 }
@@ -129,7 +111,7 @@
 
 /* Réduction de la largeur pour les petits écrans */
 @media (max-width: 768px) {
-    .cart-container-active {
+    .cart-container {
         right: 20px;
         width: 90%;
         height: auto;

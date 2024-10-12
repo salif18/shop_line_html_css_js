@@ -1,5 +1,6 @@
 /* Conteneur Profil et Panier par défaut (cachés) */
 .profil-container{
+    background: #ffffff;
     opacity: 0;
     transform: translateX(50px); /* Le panier est légèrement au-dessus au début */
     transition: opacity 0.4s ease, transform 0.4s ease;
@@ -7,26 +8,6 @@
     padding: 1rem;
     border-radius: 10px;
     border: 1px solid #f0f1f5;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    position: absolute;
-    top: 60px;
-    right: 0px;
-    width: 310px;
-    height: 20vh;
-    scroll-behavior: smooth;
-}
-
-.profil-container-active {
-    background: #ffffff;
-    opacity: 1;
-    transform: translateX(0); /* Le panier est légèrement au-dessus au début */
-    transition: opacity 0.2s ease, transform 0.4s ease; /* Transition pour le changement d'opacité et de position */
-    padding: 1rem;
-    border-radius: 10px;
-    border: 1px solid #f0f1f5;
-    display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
@@ -49,7 +30,7 @@
 }
 
 
-.profil-container-active .user-info-row{
+.user-info-row{
     display: flex;
     align-items: center;
     gap: 10px;
@@ -67,8 +48,9 @@
     font-family: "Montserrat";
 }
 
-.profil-header .close-cart{
+.profil-header .fa-remove{
     font-size: 1rem;
+    cursor: pointer;
 }
 
 .profil-content{
@@ -85,7 +67,7 @@
 
 /* Réduction de la largeur pour les petits écrans */
 @media (max-width: 768px) {
-    .profil-container-active {
+    .profil-container{
         right: 20px; /* Réduire l'écart avec le bord droit */
         width: 90%;   /* Prendre une large portion de l'écran */
         height: auto; /* S'ajuster au contenu */
