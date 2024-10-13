@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+            rel="stylesheet">
+        <link
+            href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap"
+            rel="stylesheet">
+        <link
+            href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap"
+            rel="stylesheet">
+        <link
+            href="https://fonts.googleapis.com/css2?family=Allison&display=swap"
+            rel="stylesheet">
+        <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+        <!-- Ajustez le chemin pour le fichier CSS -->
+        <link rel="stylesheet" href="css/auth.css">
+        <link rel="stylesheet" href="css/layout.css">
+        <title>Addresse de livraison</title>
+    </head>
+    <body>
+        <main class="auth-main">
+            <h2>Shop-line.fr</h2>
+            <form class="form-container">
+                <h2>Addresse de livraison</h2>
+                <article class="form-politique">
+                    <p>Acceptez les conditions
+                        en remplissant bien le formulaire. Pour que votre commande arrive bien à votre destination . </p>
+                </article>
+
+                <section class="field-content">
+                    <label for="myNom">Nom</label>
+                    <input id="myNom" class="myNom" type="text" name="nom"
+                        placeholder="Prénom et nom"/>
+                </section>
+                <section class="field-content">
+                    <label for="myPhone">Numero</label>
+                    <input id="myPhone" class="myPhone" type="tel"
+                        name="numero" placeholder="votre numero" />
+                </section>
+                <section class="field-content">
+                    <label for="myEmail">Email</label>
+                    <input id="myEmail" class="myEmail" type="email"
+                        name="email" placeholder="votre email" />
+                </section>
+                <section class="field-content">
+                    <label for="myVille">Ville</label>
+                    <input id="myVille" class="myVille" type="text"
+                        name="ville" placeholder="votre ville ou quartier"
+                        />
+                </section>
+                <section class="field-content">
+                    <label for="myRue">Rue</label>
+                    <input id="myRue" class="myRue" type="text"
+                        name="rue" placeholder="votre rue"
+                        />
+                </section>
+                <section class="field-content">
+                    <label for="myPorte">Porte</label>
+                    <input id="myPorte" class="myPorte" type="text"
+                        name="porte" placeholder="votre porte"
+                     />
+                </section>
+                <button type="submit" class="btn-submit-address">Commander</button>
+
+            </form>
+        </main>
+
+        <!-- footer -->
+        <footer class="app-footer"></footer>
+        <!-- Les scripts sont placés ici -->
+        <script src="js/auth.js"></script>
+        <script src="js/layout.js"></script>
+        <script src="js/address.js"></script>
+    </body>
+</html>

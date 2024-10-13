@@ -1,3 +1,5 @@
+// recuperer le button de click vers address
+const addressBtn = document.querySelector(".btn-address");
 // Initialisation du panier
 let cart = [];
 
@@ -13,7 +15,6 @@ function addToCart(productId) {
     saveCart();
     displayCartData(); // Réafficher les données du panier
 }
-
 
 
 // Affichage des données du panier
@@ -94,6 +95,10 @@ function saveCart() {
     localStorage.setItem('cart', JSON.stringify(cart));
 }
 
+// cliquer pour naviguer vers la page address ou login 
+addressBtn.addEventListener("click", () => {
+    window.location.href = "addresse.html";
+});
 
 // Initialisation lors du chargement de la page
 window.onload = () => {
