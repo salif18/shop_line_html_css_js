@@ -1,4 +1,4 @@
-const token = ""; // Simule un token valide ;
+const token = localStorage.getItem("token"); // Simule un token valide ;
 
 document.addEventListener("DOMContentLoaded", () => {
     const submitLogin = document.querySelector(".btn-submit-login");
@@ -46,6 +46,8 @@ document.addEventListener("DOMContentLoaded", () => {
                 };
 
                 console.log("Connexion réussie", formData);
+                localStorage.setItem("token",identifiant.value)
+                localStorage.setItem("numero",identifiant.value)
                 // fecth vers api
                 window.location.href = "../index.html"
                 // Réinitialiser les champs après connexion réussie
@@ -82,6 +84,10 @@ document.addEventListener("DOMContentLoaded", () => {
                 };
 
                 console.log("Inscription réussie", formData);
+                localStorage.setItem("nom",userName.value)
+                localStorage.setItem("phone",userPhone.value)
+                localStorage.setItem("email",userEmail.value)
+                localStorage.setItem("token",userPhone.value)
                 // fetch api 
                 window.location.href = "home.html"
                 // Réinitialiser les champs après inscription réussie
