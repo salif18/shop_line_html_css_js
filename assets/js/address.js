@@ -35,7 +35,7 @@ submitCommande.addEventListener("click", (e) => {
     if (!token) {
         // Stocker l'URL actuelle de la page pour redirection après login
         const currentUrl = window.location.href;
-        window.location.href = `../pages/login.html?redirect=${encodeURIComponent(currentUrl)}`;
+        window.location.href = `${basePath}/pages/login.html?redirect=${encodeURIComponent(currentUrl)}`;
         return;
     }
 
