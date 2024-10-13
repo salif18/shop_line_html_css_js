@@ -9,6 +9,6 @@ btnSearch.addEventListener("click", (e) => {
         // Utiliser localStorage pour stocker la valeur de recherche
         localStorage.setItem("searchValue", valueSearch.value);
         // Rediriger vers la page de recherche
-        window.location.href = "search.html";
+        window.location.href = `${basePath}/pages/search.html`;
     }
 });

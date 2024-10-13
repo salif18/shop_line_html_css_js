@@ -9,8 +9,8 @@ const displayFooter = () => {
      <h1>&copy; 2024 shopline</h1>
     </section>
     <ul class="footer-links">
-     <li><a href="home.html">Home</a></li>
-      <li><a href="about.html">About</a></li>
+     <li><a href="${basePath}/index.html">Home</a></li>
+      <li><a href="${basePath}/pages/about.html">About</a></li>
     </ul>
     `;
 }

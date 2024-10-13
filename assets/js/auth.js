@@ -47,7 +47,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 console.log("Connexion réussie", formData);
                 // fecth vers api
-                window.location.href = "home.html"
+                window.location.href = "../index.html"
                 // Réinitialiser les champs après connexion réussie
                 identifiant.value = '';
                 pass.value = '';
