@@ -49,7 +49,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 localStorage.setItem("token",identifiant.value)
                 localStorage.setItem("numero",identifiant.value)
                 // fecth vers api
-                window.location.href = "../index.html"
+                window.location.href = `${basePath}/index.html`
                 // Réinitialiser les champs après connexion réussie
                 identifiant.value = '';
                 pass.value = '';
@@ -89,7 +89,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 localStorage.setItem("email",userEmail.value)
                 localStorage.setItem("token",userPhone.value)
                 // fetch api 
-                window.location.href = "home.html"
+               window.location.href = `${basePath}/index.html`
                 // Réinitialiser les champs après inscription réussie
                 userName.value = '';
                 userPhone.value = '';
