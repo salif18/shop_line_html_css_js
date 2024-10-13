@@ -1,7 +1,7 @@
-// initialisation de l'index des elements 
+// Initialisation de l'index des éléments 
 let currentIndex = 0;
 
-// recuperation des element html de DOM
+// Récupération des éléments HTML du DOM
 const arrivalContainer = document.querySelector(".arrival-container");
 const articlesContainer = document.querySelector(".articles-items");
 const prevButton = document.querySelector(".prev-button");
@@ -11,8 +11,7 @@ const nextButton = document.querySelector(".next-button");
 const itemsToShow = 2;
 const totalItems = dataSlider.length;
 
-
-// afficher les new arrivage
+// Afficher les nouveaux arrivages
 const displayItemArrival = () => {
     dataNewArrival.forEach(item => {
         const div = document.createElement("div");
@@ -26,9 +25,9 @@ const displayItemArrival = () => {
         `;
         arrivalContainer.appendChild(div);
     });
-}
+};
 
-// afficher les donneer slider
+// Afficher les données du slider
 const displayArticleSlider = () => {
     dataSlider.forEach(item => {
         const div = document.createElement("div");
@@ -43,16 +42,22 @@ const displayArticleSlider = () => {
         `;
         articlesContainer.appendChild(div);
     });
-}
-
+    
+    updateSliderPosition(); // Met à jour la position après avoir ajouté les articles
+};
 
 // Fonction pour faire défiler les articles
 const updateSliderPosition = () => {
-    const itemWidth = articlesContainer.querySelector(".card").offsetWidth;
-    const newPosition = -currentIndex * itemWidth;
-    articlesContainer.style.transform = `translateX(${newPosition}px)`;
+    const card = articlesContainer.querySelector(".card");
+    
+    if (card) {
+        const itemWidth = card.offsetWidth; // Vérifie que l'élément est présent
+        const newPosition = -currentIndex * itemWidth;
+        articlesContainer.style.transform = `translateX(${newPosition}px)`;
+    } else {
+        console.error("Aucun élément de type '.card' n'a été trouvé dans 'articlesContainer'.");
+    }
 };
-
 
 // Gestion des boutons
 nextButton.addEventListener("click", () => {
@@ -62,7 +67,6 @@ nextButton.addEventListener("click", () => {
     }
 });
 
-
 prevButton.addEventListener("click", () => {
     if (currentIndex > 0) {
         currentIndex--;
@@ -70,3 +74,6 @@ prevButton.addEventListener("click", () => {
     }
 });
 
+// Initialisation
+displayItemArrival();
+displayArticleSlider(); // Appelle pour afficher les articles dans le slider
