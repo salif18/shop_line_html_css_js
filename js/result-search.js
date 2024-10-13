@@ -16,10 +16,11 @@ const displayResponseSearch = (value) => {
         div.classList.add("card-search");
         div.innerHTML = `
             <img src="${item.img}" alt="${item.name}" />
-            <section class="card-info">
+            <section class="card-search-info">
                 <h2>${item.name}</h2>
                 <p>$${item.price}</p>
             </section>
+             <button class="add-to-cart" onclick="addToCart(${item.id})">Ajouter <i class="fas fa-shopping-cart"></i></button>
         `;
         zoneReponse.appendChild(div);
     });

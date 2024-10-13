@@ -19,7 +19,7 @@
             rel="stylesheet">
         <link rel="stylesheet"
             href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-        <link rel="stylesheet" href="css/home.css">
+        <link rel="stylesheet" href="css/search.css">
         <link rel="stylesheet" href="css/layout.css">
         <link rel="stylesheet" href="css/cart.css">
         <link rel="stylesheet" href="css/profil.css">
@@ -30,7 +30,7 @@
         <header class="app-header"></header>
         <!-- nav -->
         <nav class="app-nav"></nav>
-        <main class="home-main">
+        <main class="search-main">
             <section class="profil-container" aria-hidden="true">
                 <div class="profil-header">
                     <div class="user-info-row">
@@ -70,29 +70,23 @@
                 <button class="btn-address">Addresse</button>
             </section>
             <section class="search-container">
-              <section class="reponse-data"></section>
+                <section class="reponse-data"></section>
             </section>
-            
+
         </main>
         <!-- footer -->
         <footer class="app-footer"></footer>
 
         <!-- Les scripts sont placés ici -->
         <script src="js/header.js"></script>
-        <!-- Chargement du header en premier -->
         <script src="js/navbar.js"></script>
-        <!-- Chargement de la barre de navigation -->
-        <script src="js/footer.js"></script> 
-        <!-- Chargement du footer -->
+        <script src="js/footer.js"></script>
         <script src="js/data.js"></script>
-        <!-- Données et fonctions globales -->
         <script src="js/cart.js"></script>
-        <!-- Gestion du panier (si dépend de data.js) -->
-        <script src="js/profil.js"></script> <!-- Gestion du profil -->
+        <script src="js/profil.js"></script>
         <script src="js/search.js"></script>
         <script src="js/result-search.js"></script>
-        <!-- Gestion de la page d'accueil (si dépend de data.js) -->
         <script src="js/toggle-btn.js"></script>
-        <!-- Chargement de la fonction toggle (à la fin si peu de dépendances) -->
+
     </body>
 </html>
