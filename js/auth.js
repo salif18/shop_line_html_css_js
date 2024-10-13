@@ -1,3 +1,5 @@
+const token = ""; // Simule un token valide ;
+
 document.addEventListener("DOMContentLoaded", () => {
     const submitLogin = document.querySelector(".btn-submit-login");
     const submitSignup = document.querySelector(".btn-submit-signup");

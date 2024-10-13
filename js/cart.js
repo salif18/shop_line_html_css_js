@@ -1,7 +1,8 @@
-// recuperer le button de click vers address
-const addressBtn = document.querySelector(".btn-address");
 // Initialisation du panier
 let cart = [];
+
+// recuperer le button de click vers address
+const addressBtn = document.querySelector(".btn-address");
 
 // Fonction pour ajouter un produit au panier
 function addToCart(productId) {
@@ -102,7 +103,5 @@ addressBtn.addEventListener("click", () => {
 
 // Initialisation lors du chargement de la page
 window.onload = () => {
-    displayItemArrival();
-    displayArticleSlider();
     loadCart(); // Charger le panier existant
 }

@@ -1,5 +1,4 @@
 const submitCommande = document.querySelector(".btn-submit-address");
-const token = "44ddds44s7ee"; // Simule un token valide
 
 // Sélection des éléments dans un objet
 const fields = {

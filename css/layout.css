@@ -44,8 +44,16 @@
     padding: 10px;
 }
 
+.submit-search{
+    padding: 0.4rem;
+    background:orangered;
+    border: none;
+    border-radius: 100%;
+    cursor: pointer;
+}
 .fa-search {
     font-size: 1.2rem;
+    color: #f0f1f5;
 }
 
 .header-rigth .list-link {
