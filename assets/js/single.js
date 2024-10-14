@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const params = new URLSearchParams(window.location.search);
         return params.get('id');
     }
-
+//   €
     // Récupérer l'ID du produit
     const productId = getProductIdFromUrl();
 
@@ -17,9 +17,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (product) {
         productDetail.innerHTML = `
-          
+        
                 <h2>${product.name}</h2>
-                <p class="price">${product.price} €</p>
+                <p class="price">${product.price} FCFA </p>
                 <p class="rating">★★★★★ (200 avis)</p>
                 <p class="description">${product.description}</p>
         
@@ -41,7 +41,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     </select>
                 </div>
         
-                <button id="add-to-cart" onclick="addToCart(${product.id})">Ajouter au panier</button>
+            <button id="add-to-cart" onclick="addToCart(${product.id})">Ajouter <i class="fas fa-shopping-cart"></i></button>
            
         `;
 

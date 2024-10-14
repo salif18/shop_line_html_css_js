@@ -15,28 +15,6 @@ body {
 }
 
 
-/* Header Styling */
-header {
-    background-color: #fff;
-    padding: 20px;
-    text-align: center;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-header h1 {
-    font-size: 2em;
-    margin-bottom: 10px;
-}
-
-header nav a {
-    margin: 0 15px;
-    color: #333;
-    text-decoration: none;
-}
-
-header nav a:hover {
-    color: #e74c3c;
-}
 
 /* Main Product Detail Section */
 main {
@@ -135,9 +113,10 @@ main {
 footer {
     text-align: center;
     padding: 20px;
-    background-color: #fff;
+    background-color: #202020;
     box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
     margin-top: 20px;
+    color: #fff;
 }
 
 footer p {
@@ -147,7 +126,7 @@ footer p {
 /* Responsive Design */
 @media screen and (max-width: 768px) {
     .product-detail {
-        margin-top: 129px;
+        margin-top: 160px;
         flex-direction: column;
     }
 

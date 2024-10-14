@@ -71,11 +71,16 @@ closeProfil.addEventListener("click", () => {
     profilContainer.style.display = "none"; // Cache immédiatement le profil lorsque l'utilisateur clique sur l'icône de fermeture
 });
 
-// Afficher les données de l'utilisateur
+
+// Fonction pour afficher les données de l'utilisateur
 const displayUserData = () => {
-    nameUser.textContent = localStorage.getItem('nom') || "Nom utilisateur";
-    emailUser.textContent = localStorage.getItem('email') || "email@exemple.com";
+    if (nameUser && emailUser) {  // Vérifiez que les éléments existent dans le DOM
+        nameUser.textContent = localStorage.getItem('nom') || "Nom utilisateur";
+        emailUser.textContent = localStorage.getItem('email') || "email@exemple.com";
+    } 
 };
+
+// Appel de la fonction
 displayUserData();
 
 // Gestion du logout

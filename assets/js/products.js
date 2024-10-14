@@ -33,10 +33,14 @@ dataNewArrival.forEach(product => {
         <div class="product-card">
             <img src="${product.img}" alt="${product.name}">
             <h2>${product.name}</h2>
-            <p>Prix: ${product.price} €</p>
+            <p>Prix: ${product.price} FCFA</p>
             <p class="rating">⭐⭐⭐⭐☆</p>
-            <button id="add-to-cart" onclick="addToCart(${product.id})">Ajouter au panier</button>
-            <a href="${basePath}/pages/single.html?id=${product.id}" class="btn-details">Voir Détails</a>
+            <button class="add-to-cart" onclick="addToCart(${product.id})">Ajouter <i class="fas fa-shopping-cart"></i> </button>
+            
         </div>
     `;
+    productList.addEventListener('click',()=>{
+    window.location.href=`${basePath}/pages/single.html?id=${product.id}`
+})
 });
+
