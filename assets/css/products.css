@@ -72,8 +72,8 @@ aside.filters {
 /* Product Grid */
 .product-list {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
+    grid-template-columns: repeat(4, 1fr);
+    gap:20;
     flex: 1;
 }
 
@@ -145,7 +145,7 @@ footer p {
 /* Media Queries for Responsive Design */
 
 /* Mobile Phones (max-width: 600px) */
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 768px) {
     header {
         padding: 10px;
     }

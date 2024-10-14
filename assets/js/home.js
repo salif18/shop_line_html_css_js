@@ -13,12 +13,12 @@ const nextButton = document.querySelector(".next-button");
 const itemsToShow = 2;
 const totalItems = dataSlider.length;
 
-btnStore1.addEventListener('click',()=>{
-    window.location.href =`${basePath}/pages/products.html`;
+btnStore1.addEventListener('click', () => {
+    window.location.href = `${basePath}/pages/products.html`;
 })
 
-btnStore2.addEventListener('click',()=>{
-    window.location.href =`${basePath}/pages/products.html`;
+btnStore2.addEventListener('click', () => {
+    window.location.href = `${basePath}/pages/products.html`;
 })
 
 // Afficher les nouveaux arrivages
@@ -50,20 +50,20 @@ const displayArticleSlider = () => {
             </section>
             <button class="add-to-cart" onclick="addToCart(${item.id})">Ajouter <i class="fas fa-shopping-cart"></i></button>
         `;
-        div.addEventListener('click',()=>{
-            window.location.href=`${basePath}/pages/single.html?id=${item.id}`
+        div.addEventListener('click', () => {
+            window.location.href = `${basePath}/pages/single.html?id=${item.id}`
         })
         articlesContainer.appendChild(div);
-      
+
     });
-    
+
     updateSliderPosition(); // Met à jour la position après avoir ajouté les articles
 };
 
 // Fonction pour faire défiler les articles
 const updateSliderPosition = () => {
     const card = articlesContainer.querySelector(".card");
-    
+
     if (card) {
         const itemWidth = card.offsetWidth; // Vérifie que l'élément est présent
         const newPosition = -currentIndex * itemWidth;
@@ -90,4 +90,4 @@ prevButton.addEventListener("click", () => {
 
 // Initialisation
 displayItemArrival();
-displayArticleSlider(); // Appelle pour afficher les articles dans le slider
+displayArticleSlider();
