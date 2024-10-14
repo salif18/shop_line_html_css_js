@@ -29,7 +29,7 @@ document.getElementById('search-input').addEventListener('input', function() {
 
 
 // Générer la liste des produits
-dataNewArrival.forEach(product => {
+data.forEach(product => {
     productList.innerHTML += `
         <div class="product-card" data-id="${product.id}">
             <img src="${product.img}" alt="${product.name}">

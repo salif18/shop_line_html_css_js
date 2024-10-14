@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const nextButton = document.querySelector(".next-button");
     
     const itemsToShow = 2;
-    const totalItems = dataSlider ? dataSlider.length : 0; // Assurez-vous que les données existent
+    const totalItems = data ? data.length : 0; // Assurez-vous que les données existent
     
     if (!btnStore1 || !btnStore2 || !arrivalContainer || !articlesContainer || !prevButton || !nextButton) {
         console.error("Un ou plusieurs éléments du DOM sont manquants.");
@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     const displayItemArrival = () => {
-        dataNewArrival.forEach(item => {
+        data.slice(0,2).map(item => {
             const div = document.createElement("div");
             div.classList.add("card");
             div.innerHTML = `
@@ -39,7 +39,7 @@ document.addEventListener("DOMContentLoaded", () => {
     };
 
     const displayArticleSlider = () => {
-        dataSlider.forEach(item => {
+        data.forEach(item => {
             const div = document.createElement("div");
             div.classList.add("card");
             div.innerHTML = `

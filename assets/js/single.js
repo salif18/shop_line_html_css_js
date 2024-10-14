@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const productId = getProductIdFromUrl();
 
     // Rechercher le produit dans la liste par son ID
-    const product = dataNewArrival.find(p => p.id == productId);
+    const product = data.find(p => p.id == productId);
 
     if (product) {
         productDetail.innerHTML = `

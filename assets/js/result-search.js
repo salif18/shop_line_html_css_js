@@ -6,10 +6,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Fonction pour afficher les résultats
     const displayResponseSearch = (value) => {
-        const dataFilter = dataSlider.filter(item => item.name.toLowerCase().includes(value.toLowerCase()));
+        const dataFilter = data.filter(item => item.name.toLowerCase().includes(value.toLowerCase()));
 
-        // Effacer les anciennes réponses
-        const zoneReponse = document.querySelector(".reponse-data");
         zoneReponse.innerHTML = '';
 
         dataFilter.forEach(item => {
