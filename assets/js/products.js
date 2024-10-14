@@ -30,17 +30,21 @@ document.getElementById('search-input').addEventListener('input', function() {
 // Générer la liste des produits
 dataNewArrival.forEach(product => {
     productList.innerHTML += `
-        <div class="product-card">
+        <div class="product-card" data-id="${product.id}">
             <img src="${product.img}" alt="${product.name}">
             <h2>${product.name}</h2>
             <p>Prix: ${product.price} FCFA</p>
             <p class="rating">⭐⭐⭐⭐☆</p>
             <button class="add-to-cart" onclick="addToCart(${product.id})">Ajouter <i class="fas fa-shopping-cart"></i> </button>
-            
         </div>
     `;
-    productList.addEventListener('click',()=>{
-    window.location.href=`${basePath}/pages/single.html?id=${product.id}`
-})
 });
 
+// Ajouter un écouteur de clic à chaque produit
+const productCards = document.querySelectorAll('.product-card');
+productCards.forEach(card => {
+    card.addEventListener('click', function() {
+        const productId = this.getAttribute('data-id'); // Récupérer l'ID du produit à partir de l'attribut data-id
+        window.location.href = `${basePath}/pages/single.html?id=${productId}`;
+    });
+});

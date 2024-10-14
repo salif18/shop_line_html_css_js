@@ -22,10 +22,12 @@ const displayResponseSearch = (value) => {
             </section>
              <button class="add-to-cart" onclick="addToCart(${item.id})">Ajouter <i class="fas fa-shopping-cart"></i></button>
         `;
-        zoneReponse.appendChild(div);
-        zoneReponse.addEventListener('click',()=>{
+        
+        div.addEventListener('click',(e)=>{
+            e.preventDefault()
             window.location.href=`${basePath}/pages/single.html?id=${item.id}`
         })
+        div.appendChild(div);
     });
 
     // Effacer la valeur après l'affichage
