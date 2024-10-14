@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     const displayItemArrival = () => {
-        data.slice(0,2).map(item => {
+        data.slice(0,4).map(item => {
             const div = document.createElement("div");
             div.classList.add("card");
             div.innerHTML = `

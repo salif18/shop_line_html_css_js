@@ -69,6 +69,7 @@ figure img {
 
 /* container arrival */
 .new-arrived {
+    width: 100%;
     padding: 2rem;
     display: flex;
     flex-direction: column;
@@ -85,16 +86,17 @@ figure img {
 
 .arrival-container {
     margin-top: 2rem;
-    width: 900px;
+    padding: 1rem;
+    width: 50%;
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     justify-content: center;
-    flex-wrap: wrap;
     gap: 1rem;
 }
 
 .arrival-container .card {
-    width: 300px;
+    width: 35%;
     height: 250px;
     display: flex;
     gap: 1rem;
@@ -349,14 +351,18 @@ figure img {
 
 
 @media (max-width: 768px) {
-    .arrival-container {
-        flex-direction: column;
+    .new-arrived{
         width: 100%;
+    }
+    .arrival-container {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr); /* Grille de 2 colonnes */
+        gap: 0.5rem; /* Ajuste l'écart entre les colonnes */
+        width: 100%; /* Prendre toute la largeur disponible */
     }
 
     .arrival-container .card {
-        width: 100%;
-        max-width: 300px;
+        width: 100%; /* Prendre toute la largeur dans la colonne */
     }
 
     .profil-container-active,
