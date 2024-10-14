@@ -3,13 +3,17 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+
 }
 
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    color: #333;
+    margin: 0;
+    padding: 0;
+    font-family: "Montserrat","Roboto";
 }
+
 
 /* Header Styling */
 header {
@@ -43,6 +47,7 @@ main {
 }
 
 .product-detail {
+    margin-top: 130px;
     display: flex;
     max-width: 1200px;
     background-color: #fff;
@@ -142,6 +147,7 @@ footer p {
 /* Responsive Design */
 @media screen and (max-width: 768px) {
     .product-detail {
+        margin-top: 129px;
         flex-direction: column;
     }
 

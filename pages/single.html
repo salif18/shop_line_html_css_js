@@ -1,58 +1,94 @@
 <!DOCTYPE html>
 <html lang="fr">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
-        rel="stylesheet">
-    <link
-        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap"
-        rel="stylesheet">
-    <link
-        href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap"
-        rel="stylesheet">
-    <link
-        href="https://fonts.googleapis.com/css2?family=Allison&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <title>Détail du produit</title>
-    <link rel="stylesheet" href="../assets//css/single.css">
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+            rel="stylesheet">
+        <link
+            href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap"
+            rel="stylesheet">
+        <link
+            href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap"
+            rel="stylesheet">
+        <link
+            href="https://fonts.googleapis.com/css2?family=Allison&display=swap"
+            rel="stylesheet">
+        <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+        <link rel="stylesheet" href="../assets/css/single.css">
+        <link rel="stylesheet" href="../assets/css/layout.css">
+        <link rel="stylesheet" href="../assets/css/cart.css">
+        <link rel="stylesheet" href="../assets/css/profil.css">
+        <title>Détail du produit</title>
+    </head>
 
-<body>
+    <body>
 
-    <!-- Header -->
-    <header>
-        <h1>Nom de la Boutique</h1>
-        <nav>
-            <a href="#">Accueil</a>
-            <a href="#">Produits</a>
-            <a href="#">Panier</a>
-        </nav>
-    </header>
+        <!-- header -->
+        <header class="app-header"></header>
+        <!-- nav -->
+        <nav class="app-nav"></nav>
 
-    <!-- Main Product Detail Section -->
-    <main>
-        <div class="product-detail">
+        <!-- Main Product Detail Section -->
+        <main>
+            <section class="profil-container" aria-hidden="true">
+                <div class="profil-header">
+                    <div class="user-info-row">
+                        <!-- <img class="user-photo" src="" alt="" /> -->
+                        <i class="fas fa-user"></i>
+                        <div class="user-name-column">
+                            <h2 id="user-name"></h2>
+                            <p id="user-email"></p>
+                        </div>
+                    </div>
+                    <i class="fas fa-remove"></i> <!-- Icône de fermeture -->
+                </div>
 
-            <!-- Product Images Section -->
-            <div class="product-images">
-                <img src="image1.jpg" id="main-image" alt="Produit">
+                <section class="profil-content">
+                    <button class="btn-logout"> <i
+                            class="fas fa-sign-out-alt"></i>Se
+                        déconnecter</button>
+                </section>
+            </section>
+            <section class="cart-container" aria-hidden="true">
+                <div class="cart-header">
+                    <div class="total-info">
+                        <div class="total-title">
+                            <h2>Total</h2>
+                            <h2>Nombre</h2>
+                        </div>
+
+                        <div class="somme">
+                            <p>25000$</p>
+                            <p>5</p>
+                        </div>
+                    </div>
+                    <i class="fas fa-times close-cart"></i>
+                    <!-- Icône de fermeture -->
+                </div>
+                <section class="cart-items"></section>
+                <button class="btn-address">Addresse</button>
+            </section>
+            <div class="product-detail">
+
+                <!-- Product Images Section -->
+                <div class="product-images">
+                    <!-- <img src="image1.jpg" id="main-image" alt="Produit">
                 <div class="image-gallery">
                     <img src="image1.jpg" alt="Produit" class="thumbnail" onclick="changeImage(this)">
                     <img src="image2.jpg" alt="Produit" class="thumbnail" onclick="changeImage(this)">
                     <img src="image3.jpg" alt="Produit" class="thumbnail" onclick="changeImage(this)">
+                </div> -->
                 </div>
-            </div>
 
-            <!-- Product Info Section -->
-            <div class="product-info">
-                <h2>Nom du produit</h2>
+                <!-- Product Info Section -->
+                <div class="product-info">
+                    <!-- <h2>Nom du produit</h2>
                 <p class="price">€99.99</p>
                 <p class="rating">★★★★★ (200 avis)</p>
                 <p class="description">Description détaillée du produit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
@@ -75,18 +111,23 @@
                     </select>
                 </div>
 
-                <button id="add-to-cart" onclick="addToCart()">Ajouter au panier</button>
+                <button id="add-to-cart" onclick="addToCart()">Ajouter au panier</button> -->
+                </div>
+
             </div>
+        </main>
 
-        </div>
-    </main>
-
-    <!-- Footer -->
-    <footer>
-        <p>© 2024 Nom de la Boutique. Tous droits réservés.</p>
-    </footer>
-
-    <script src="../assets/js/single.js"></script>
-</body>
+        <!-- Footer -->
+        <footer>
+            <p>© 2024 Nom de la Boutique. Tous droits réservés.</p>
+        </footer>
+        <script src="../assets/js/locationhref.js"></script>
+        <script src="../assets/js/header.js"></script>
+        <script src="../assets/js/navbar.js"></script>
+        <script src="../assets/js/data.js"></script>
+        <script src="../assets/js/cart.js"></script>
+        <script src="../assets/js/single.js"></script>
+        <script src="../assets/js/toggle-btn.js"></script>
+    </body>
 
 </html>

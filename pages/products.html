@@ -3,13 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <title>Product Page</title>
     <link rel="stylesheet" href="../assets/css/products.css">
+    <link rel="stylesheet" href="../assets/css/cart.css">
+    <link rel="stylesheet" href="../assets/css/profil.css">
+    <title>Product Page</title>
+    
 </head>
 <body>
 
     <!-- Header Section -->
+       <!-- nav -->
+    <!-- <nav class="app-nav"></nav> -->
     <header>
         <h1>Nos Produits</h1>
         <div class="search-bar">
@@ -28,6 +32,44 @@
 
     <!-- Main Content -->
     <main>
+        <section class="profil-container" aria-hidden="true">
+            <div class="profil-header">
+                <div class="user-info-row">
+                    <!-- <img class="user-photo" src="" alt="" /> -->
+                    <i class="fas fa-user"></i>
+                    <div class="user-name-column">
+                        <h2 id="user-name"></h2>
+                        <p id="user-email"></p>
+                    </div>
+                </div>
+                <i class="fas fa-remove"></i> <!-- Icône de fermeture -->
+            </div>
+
+            <section class="profil-content">
+                <button class="btn-logout"> <i
+                        class="fas fa-sign-out-alt"></i>Se
+                    déconnecter</button>
+            </section>
+        </section>
+        <section class="cart-container" aria-hidden="true">
+            <div class="cart-header">
+                <div class="total-info">
+                    <div class="total-title">
+                        <h2>Total</h2>
+                        <h2>Nombre</h2>
+                    </div>
+
+                    <div class="somme">
+                        <p>25000$</p>
+                        <p>5</p>
+                    </div>
+                </div>
+                <i class="fas fa-times close-cart"></i>
+                <!-- Icône de fermeture -->
+            </div>
+            <section class="cart-items"></section>
+            <button class="btn-address">Addresse</button>
+        </section>
         <!-- Sidebar Filters -->
         <aside class="filters">
             <h3>Filters</h3>
@@ -58,7 +100,7 @@
 
         <!-- Product Grid -->
         <section class="product-list">
-            <div class="product-card">
+            <!-- <div class="product-card">
                 <img src="" alt="Product 1">
                 <h2>Product 1</h2>
                 <p class="price">$299</p>
@@ -72,7 +114,7 @@
                 <p class="price">$499</p>
                 <p class="rating">⭐⭐⭐⭐⭐</p>
                 <button class="add-to-cart">Add to Cart</button>
-            </div>
+            </div> -->
 
             <!-- Add more product cards as needed -->
         </section>
@@ -83,7 +125,11 @@
         <p>&copy; 2024 Your E-commerce Store. All rights reserved.</p>
         <p>Terms of Service | Privacy Policy</p>
     </footer>
-
+    <script src="../assets/js/locationhref.js"></script>
+    <!-- <script src="../assets/js/navbar.js"></script> -->
+    <script src="../assets/js/data.js"></script>
+    <script src="../assets/js/cart.js"></script>
     <script src="../assets/js/products.js"></script>
+    
 </body>
 </html>
