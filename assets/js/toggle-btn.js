@@ -5,6 +5,9 @@ const cartContainer = document.querySelector(".cart-container");
 const cartBtn = document.querySelector(".fa-shopping-cart");
 const closeCartBtn = document.querySelector(".close-cart");
 const closeProfil = document.querySelector(".fa-remove");
+const btnLogout = document.querySelector(".btn-logout");
+const nameUser = document.querySelector("#user-name");
+const emailUser = document.querySelector("#user-email");
 
 // Gestion du clic sur l'icône du panier
 cartBtn.addEventListener("click", (e) => {
@@ -66,4 +69,20 @@ userBtn.addEventListener("click", (e) => {
 // Fermer le profil avec l'icône de fermeture
 closeProfil.addEventListener("click", () => {
     profilContainer.style.display = "none"; // Cache immédiatement le profil lorsque l'utilisateur clique sur l'icône de fermeture
+});
+
+// Afficher les données de l'utilisateur
+const displayUserData = () => {
+    nameUser.textContent = localStorage.getItem('nom') || "Nom utilisateur";
+    emailUser.textContent = localStorage.getItem('email') || "email@exemple.com";
+};
+displayUserData();
+
+// Gestion du logout
+btnLogout.addEventListener("click", (e) => {
+    e.preventDefault();
+    localStorage.removeItem("token");
+    localStorage.removeItem("numero");
+    // Redirection après déconnexion
+    // window.location.href = "/pages/login.html"; // Rediriger vers la page de connexion
 });

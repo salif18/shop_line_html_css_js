@@ -98,7 +98,7 @@ function saveCart() {
 
 // cliquer pour naviguer vers la page address ou login 
 addressBtn.addEventListener("click", () => {
-    window.location.href = "addresse.html";
+    window.location.href = `${basePath}/pages/addresse.html`;
 });
 
 // Initialisation lors du chargement de la page

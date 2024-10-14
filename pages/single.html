@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Allison&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>Détail du produit</title>
+    <link rel="stylesheet" href="../assets//css/single.css">
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header>
+        <h1>Nom de la Boutique</h1>
+        <nav>
+            <a href="#">Accueil</a>
+            <a href="#">Produits</a>
+            <a href="#">Panier</a>
+        </nav>
+    </header>
+
+    <!-- Main Product Detail Section -->
+    <main>
+        <div class="product-detail">
+
+            <!-- Product Images Section -->
+            <div class="product-images">
+                <img src="image1.jpg" id="main-image" alt="Produit">
+                <div class="image-gallery">
+                    <img src="image1.jpg" alt="Produit" class="thumbnail" onclick="changeImage(this)">
+                    <img src="image2.jpg" alt="Produit" class="thumbnail" onclick="changeImage(this)">
+                    <img src="image3.jpg" alt="Produit" class="thumbnail" onclick="changeImage(this)">
+                </div>
+            </div>
+
+            <!-- Product Info Section -->
+            <div class="product-info">
+                <h2>Nom du produit</h2>
+                <p class="price">€99.99</p>
+                <p class="rating">★★★★★ (200 avis)</p>
+                <p class="description">Description détaillée du produit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+
+                <div class="product-options">
+                    <label for="size">Taille:</label>
+                    <select id="size">
+                        <option value="S">S</option>
+                        <option value="M">M</option>
+                        <option value="L">L</option>
+                    </select>
+                </div>
+
+                <div class="product-options">
+                    <label for="color">Couleur:</label>
+                    <select id="color">
+                        <option value="red">Rouge</option>
+                        <option value="blue">Bleu</option>
+                        <option value="green">Vert</option>
+                    </select>
+                </div>
+
+                <button id="add-to-cart" onclick="addToCart()">Ajouter au panier</button>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2024 Nom de la Boutique. Tous droits réservés.</p>
+    </footer>
+
+    <script src="../assets/js/single.js"></script>
+</body>
+
+</html>

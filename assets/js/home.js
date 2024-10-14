@@ -2,6 +2,8 @@
 let currentIndex = 0;
 
 // Récupération des éléments HTML du DOM
+const btnStore1 = document.querySelector(".btn-explore-1");
+const btnStore2 = document.querySelector(".btn-explore-2");
 const arrivalContainer = document.querySelector(".arrival-container");
 const articlesContainer = document.querySelector(".articles-items");
 const prevButton = document.querySelector(".prev-button");
@@ -10,6 +12,14 @@ const nextButton = document.querySelector(".next-button");
 // Nombre d'articles visibles en même temps
 const itemsToShow = 2;
 const totalItems = dataSlider.length;
+
+btnStore1.addEventListener('click',()=>{
+    window.location.href =`${basePath}/pages/products.html`;
+})
+
+btnStore2.addEventListener('click',()=>{
+    window.location.href =`${basePath}/pages/products.html`;
+})
 
 // Afficher les nouveaux arrivages
 const displayItemArrival = () => {

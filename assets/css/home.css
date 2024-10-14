@@ -46,7 +46,7 @@ body {
     text-transform: uppercase;
 }
 
-.banner-left .btn-explore {
+.banner-left .btn-explore-1 {
     width: 200px;
     height: 40px;
     border: none;
@@ -58,7 +58,7 @@ body {
     transition: 0.3s all ease-in-out;
 }
 
-.banner-left .btn-explore:hover {
+.banner-left .btn-explore-1:hover {
     background: #5e5e5e;
 }
 
@@ -149,7 +149,7 @@ figure img {
     text-transform: uppercase;
 }
 
-.articles-container .btn-explore {
+.articles-container .btn-explore-2 {
     font-family: "Afacad Flux", sans-serif;
     margin: 2rem;
     width: 200px;
@@ -163,7 +163,7 @@ figure img {
     transition: background 0.3s ease-in-out;
 }
 
-.articles-container .btn-explore:hover {
+.articles-container .btn-explore-2:hover {
     background: #5e5e5e;
 }
 

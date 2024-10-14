@@ -85,7 +85,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 console.log("Inscription réussie", formData);
                 localStorage.setItem("nom",userName.value)
-                localStorage.setItem("phone",userPhone.value)
+                localStorage.setItem("numero",userPhone.value)
                 localStorage.setItem("email",userEmail.value)
                 localStorage.setItem("token",userPhone.value)
                 // fetch api 
