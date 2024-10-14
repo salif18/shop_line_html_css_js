@@ -34,6 +34,10 @@ document.addEventListener("DOMContentLoaded", () => {
                     <p>$${item.price}</p>
                 </section>
             `;
+            div.addEventListener('click', (e) => {
+                e.preventDefault();
+                window.location.href = `${basePath}/pages/single.html?id=${item.id}`;
+            });
             arrivalContainer.appendChild(div);
         });
     };
