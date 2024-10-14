@@ -373,11 +373,15 @@ figure img {
     }
 
     .banner-left p {
-        margin-top: 2rem;
+        margin: 2rem;
         text-align: center;
         line-height: 2rem;
-        font-size: 2rem;
+        font-size: 1.8rem;
         font-family: "Montserrat";
+    }
+
+    .banner-left h1{
+        font-size: 1.8rem;
     }
 
     figure img {

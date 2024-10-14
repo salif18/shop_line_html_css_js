@@ -113,7 +113,7 @@ main {
 }
 
 #add-to-cart {
-    background-color: #2ecc71;
+    background-color: orangered;
     color: white;
     padding: 15px 20px;
     border: none;
@@ -123,7 +123,7 @@ main {
 }
 
 #add-to-cart:hover {
-    background-color: #27ae60;
+    background-color: rgba(255, 68, 0, 0.788);
 }
 
 /* Footer Styling */

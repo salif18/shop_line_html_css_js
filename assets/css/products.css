@@ -98,7 +98,7 @@ aside.filters {
 }
 
 .product-card button {
-    background-color: #2ecc71;
+    background-color: orangered;
     color: white;
     padding: 10px 15px;
     border: none;
@@ -107,7 +107,7 @@ aside.filters {
 }
 
 .product-card button:hover {
-    background-color: #27ae60;
+    background-color: rgba(255, 68, 0, 0.74);
 }
 
 /* Footer Styling */

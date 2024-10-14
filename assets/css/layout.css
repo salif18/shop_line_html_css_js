@@ -36,7 +36,7 @@
 }
 
 .header-rigth label input {
-    max-width: 300px;
+    width: 100%;
     border: 1px solid #f0f1f5;
     border-radius: 15px;
     outline: none;
@@ -157,7 +157,7 @@
     }
 
     .header-rigth label input {
-        max-width: 100%;
+        width: 100%;
     }
 
     .app-nav {
