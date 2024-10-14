@@ -141,6 +141,17 @@
     margin-top: 1rem;
 }
 
+.empty-cart{
+    margin-top: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: "Montserrat";
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: grey;
+}
+
 /* Réduction de la largeur pour les petits écrans */
 @media (max-width: 768px) {
     .cart-container {

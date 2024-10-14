@@ -1,5 +1,4 @@
 const token = localStorage.getItem("token"); // Simule un token valide ;
-
 document.addEventListener("DOMContentLoaded", () => {
     const submitLogin = document.querySelector(".btn-submit-login");
     const submitSignup = document.querySelector(".btn-submit-signup");
@@ -46,8 +45,8 @@ document.addEventListener("DOMContentLoaded", () => {
                 };
 
                 console.log("Connexion réussie", formData);
-                localStorage.setItem("token",identifiant.value)
-                localStorage.setItem("numero",identifiant.value)
+                localStorage.setItem("token", identifiant.value)
+                localStorage.setItem("numero", identifiant.value)
                 // fecth vers api
                 window.location.href = `${basePath}/index.html`
                 // Réinitialiser les champs après connexion réussie
@@ -78,18 +77,18 @@ document.addEventListener("DOMContentLoaded", () => {
                 // Récupération des valeurs des champs dans un objet formData
                 const formData = {
                     Nom: userName.value,
-                    Numero:userPhone.value,
+                    Numero: userPhone.value,
                     Email: userEmail.value,
-                    Password:userPass.value,
+                    Password: userPass.value,
                 };
 
                 console.log("Inscription réussie", formData);
-                localStorage.setItem("nom",userName.value)
-                localStorage.setItem("numero",userPhone.value)
-                localStorage.setItem("email",userEmail.value)
-                localStorage.setItem("token",userPhone.value)
+                localStorage.setItem("nom", userName.value)
+                localStorage.setItem("numero", userPhone.value)
+                localStorage.setItem("email", userEmail.value)
+                localStorage.setItem("token", userPhone.value)
                 // fetch api 
-               window.location.href = `${basePath}/index.html`
+                window.location.href = `${basePath}/index.html`
                 // Réinitialiser les champs après inscription réussie
                 userName.value = '';
                 userPhone.value = '';
@@ -99,3 +98,4 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 });
+

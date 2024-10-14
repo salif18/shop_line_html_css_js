@@ -1,3 +1,4 @@
+document.addEventListener("DOMContentLoaded",function(){
 const productList = document.querySelector(".product-list");
 
 document.getElementById('price-filter').addEventListener('input', function() {
@@ -47,4 +48,6 @@ productCards.forEach(card => {
         const productId = this.getAttribute('data-id'); // Récupérer l'ID du produit à partir de l'attribut data-id
         window.location.href = `${basePath}/pages/single.html?id=${productId}`;
     });
+});
+
 });

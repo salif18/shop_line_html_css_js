@@ -1,20 +1,21 @@
-// Sur la page de recherche
-const zoneReponse = document.querySelector(".reponse-data");
-// Récupérer la valeur de recherche depuis localStorage
-const searchValue = localStorage.getItem("searchValue");
-
-// Fonction pour afficher les résultats
-const displayResponseSearch = (value) => {
-    const dataFilter = dataSlider.filter(item => item.name.toLowerCase().includes(value.toLowerCase()));
-
-    // Effacer les anciennes réponses
+document.addEventListener("DOMContentLoaded", function () {
+    // Sur la page de recherche
     const zoneReponse = document.querySelector(".reponse-data");
-    zoneReponse.innerHTML = '';
+    // Récupérer la valeur de recherche depuis localStorage
+    const searchValue = localStorage.getItem("searchValue");
 
-    dataFilter.forEach(item => {
-        const div = document.createElement("div");
-        div.classList.add("card-search");
-        div.innerHTML = `
+    // Fonction pour afficher les résultats
+    const displayResponseSearch = (value) => {
+        const dataFilter = dataSlider.filter(item => item.name.toLowerCase().includes(value.toLowerCase()));
+
+        // Effacer les anciennes réponses
+        const zoneReponse = document.querySelector(".reponse-data");
+        zoneReponse.innerHTML = '';
+
+        dataFilter.forEach(item => {
+            const div = document.createElement("div");
+            div.classList.add("card-search");
+            div.innerHTML = `
             <img src="${item.img}" alt="${item.name}" />
             <section class="card-search-info">
                 <h2>${item.name}</h2>
@@ -23,19 +24,21 @@ const displayResponseSearch = (value) => {
              <button class="add-to-cart" onclick="addToCart(${item.id})">Ajouter <i class="fas fa-shopping-cart"></i></button>
         `;
 
-        div.addEventListener('click', (e) => {
-            e.preventDefault()
-            window.location.href = `${basePath}/pages/single.html?id=${item.id}`
-        })
-        zoneReponse.appendChild(div);
+            div.addEventListener('click', (e) => {
+                e.preventDefault()
+                window.location.href = `${basePath}/pages/single.html?id=${item.id}`
+            })
+            zoneReponse.appendChild(div);
 
-    });
+        });
 
-    // Effacer la valeur après l'affichage
-    localStorage.removeItem("searchValue");
-}
+        // Effacer la valeur après l'affichage
+        localStorage.removeItem("searchValue");
+    }
 
 
-if (searchValue) {
-    displayResponseSearch(searchValue);
-}
+    if (searchValue) {
+        displayResponseSearch(searchValue);
+    }
+
+});

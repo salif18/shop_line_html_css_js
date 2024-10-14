@@ -37,6 +37,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // Gestion du clic sur l'icône utilisateur
     userBtn.addEventListener("click", (e) => {
         e.preventDefault();
+     
         if (profilContainer.style.display === "none") {
             profilContainer.style.display = "flex";
             profilContainer.setAttribute("aria-hidden", "false");
@@ -52,6 +53,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 profilContainer.setAttribute("aria-hidden", "true");
             }, 400);
         }
+       
     });
 
     // Fermer le profil avec l'icône de fermeture

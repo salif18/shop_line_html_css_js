@@ -70,6 +70,23 @@
     cursor: pointer;
 }
 
+.cart-icon-qty{
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    padding: 0.4rem;
+}
+
+.cart-icon-qty .cartqty{
+    top: -2px;
+    right: 5px;
+    position: absolute;
+    color: rgb(0, 0, 0);
+    font-size: 0.7rem;
+    font-weight: bold;
+    font-family: "Roboto";
+}
+
 .header-rigth .fa-shopping-cart{
     color: orangered;
 }
