@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const params = new URLSearchParams(window.location.search);
         return params.get('id');
     }
-//   €
+    //   €
     // Récupérer l'ID du produit
     const productId = getProductIdFromUrl();
 
@@ -17,7 +17,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (product) {
         productDetail.innerHTML = `
-        
                 <h2>${product.name}</h2>
                 <p class="price">${product.price} FCFA </p>
                 <p class="rating">★★★★★ (200 avis)</p>
@@ -42,9 +41,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 </div>
         
             <button id="add-to-cart" onclick="addToCart(${product.id})">Ajouter <i class="fas fa-shopping-cart"></i></button>
-           
         `;
-
+        // Afficher la galerie d'images avec les images spécifiques du produit
+        renderImageGallery(product.img);
     } else {
         productDetail.innerHTML = "<p>Produit non trouvé</p>";
     }
@@ -56,7 +55,13 @@ function changeImage(imgElement) {
 }
 
 // Fonction pour générer dynamiquement la galerie d'images
-function renderImageGallery(images) {
+function renderImageGallery(imagePrincipalProduct) {
+    // Exemple d'images de produit (à remplacer par tes propres données)
+    const productImages = [
+        `${basePath}/assets/images/watch.png`,
+        `${basePath}/assets/images/img.png`,
+        `${basePath}/assets/images/watch.png`
+    ];
     // Sélectionner l'élément où la galerie d'images sera insérée
     const productImage = document.querySelector(".product-images");
 
@@ -66,7 +71,7 @@ function renderImageGallery(images) {
 
     // Créer l'image principale
     const mainImage = document.createElement("img");
-    mainImage.src = images[0];  // L'image principale sera la première par défaut
+    mainImage.src = imagePrincipalProduct;  // L'image principale sera la première par défaut
     mainImage.id = "main-image";
     mainImage.alt = "Produit";
 
@@ -78,7 +83,7 @@ function renderImageGallery(images) {
     imageGallery.classList.add("image-gallery");
 
     // Parcourir les images et créer les miniatures
-    images.forEach((imageSrc) => {
+    productImages.forEach((imageSrc) => {
 
         const thumbnail = document.createElement("img");
         thumbnail.src = imageSrc;
@@ -97,14 +102,8 @@ function renderImageGallery(images) {
 
     // // Insérer tout cela dans la section product-detail
     productImage.appendChild(productImagesContainer);
+
+
+
 }
 
-// Exemple d'images de produit (à remplacer par tes propres données)
-const productImages = [
-    `${basePath}/assets/images/watch.png`,
-    `${basePath}/assets/images/img.png`,
-    `${basePath}/assets/images/watch.png`
-];
-
-// Appel de la fonction pour afficher la galerie d'images
-renderImageGallery(productImages);

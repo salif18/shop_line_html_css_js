@@ -6,7 +6,7 @@ const searchValue = localStorage.getItem("searchValue");
 // Fonction pour afficher les résultats
 const displayResponseSearch = (value) => {
     const dataFilter = dataSlider.filter(item => item.name.toLowerCase().includes(value.toLowerCase()));
-    
+
     // Effacer les anciennes réponses
     const zoneReponse = document.querySelector(".reponse-data");
     zoneReponse.innerHTML = '';
@@ -22,12 +22,13 @@ const displayResponseSearch = (value) => {
             </section>
              <button class="add-to-cart" onclick="addToCart(${item.id})">Ajouter <i class="fas fa-shopping-cart"></i></button>
         `;
-        
-        div.addEventListener('click',(e)=>{
+
+        div.addEventListener('click', (e) => {
             e.preventDefault()
-            window.location.href=`${basePath}/pages/single.html?id=${item.id}`
+            window.location.href = `${basePath}/pages/single.html?id=${item.id}`
         })
-        div.appendChild(div);
+        zoneReponse.appendChild(div);
+
     });
 
     // Effacer la valeur après l'affichage
