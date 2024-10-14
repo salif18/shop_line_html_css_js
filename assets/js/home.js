@@ -48,7 +48,6 @@ document.addEventListener("DOMContentLoaded", () => {
                     <h2>${item.name}</h2>
                     <p>$${item.price}</p>
                 </section>
-                <button class="add-to-cart" onclick="addToCart(${item.id})">Ajouter <i class="fas fa-shopping-cart"></i></button>
             `;
             div.addEventListener('click', (e) => {
                 e.preventDefault();
