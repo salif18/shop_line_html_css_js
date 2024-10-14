@@ -51,7 +51,7 @@
 
     // Fonction pour ajouter un produit au panier
     function addToCart(productId) {
-        const product = dataSlider.find(p => p.id === productId);
+        const product = data.find(p => p.id === productId);
         const cartItem = cart.find(item => item.id === productId);
         if (cartItem) {
             cartItem.qty += 1; // Si le produit est déjà dans le panier, augmenter la quantité
