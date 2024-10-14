@@ -50,7 +50,11 @@ const displayArticleSlider = () => {
             </section>
             <button class="add-to-cart" onclick="addToCart(${item.id})">Ajouter <i class="fas fa-shopping-cart"></i></button>
         `;
+        div.addEventListener('click',()=>{
+            window.location.href=`${basePath}/pages/single.html?id=${item.id}`
+        })
         articlesContainer.appendChild(div);
+      
     });
     
     updateSliderPosition(); // Met à jour la position après avoir ajouté les articles

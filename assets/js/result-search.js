@@ -23,6 +23,9 @@ const displayResponseSearch = (value) => {
              <button class="add-to-cart" onclick="addToCart(${item.id})">Ajouter <i class="fas fa-shopping-cart"></i></button>
         `;
         zoneReponse.appendChild(div);
+        zoneReponse.addEventListener('click',()=>{
+            window.location.href=`${basePath}/pages/single.html?id=${item.id}`
+        })
     });
 
     // Effacer la valeur après l'affichage
