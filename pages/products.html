@@ -33,15 +33,6 @@
         <div class="search-bar">
             <input type="text" id="search-input" placeholder="Search for products...">
         </div>
-        <div class="filter-sort">
-            <select id="sort" name="filter">
-                <option value="default">Sort by</option>
-                <option value="price-asc">Price: Low to High</option>
-                <option value="price-desc">Price: High to Low</option>
-                <option value="rating">Rating</option>
-                <option value="newest">Newest</option>
-            </select>
-        </div>
     </header>
 
     <!-- Main Content -->
@@ -90,32 +81,30 @@
             <div class="filter-category">
                 <h4>Categories</h4>
                 <ul>
-                    <li><input type="checkbox" id="category1"/> Electronics</li>
-                    <li><input type="checkbox" id="category2" /> Fashion</li>
-                    <li><input type="checkbox" id="category3"/> Home & Kitchen</li>
+                    <li><input type="checkbox" id="category1" value="Accessoires" /> Accessoires</li>
+                    <li><input type="checkbox" id="category2" value="Vetements" /> Vetements</li>
+                    <li><input type="checkbox" id="category3"value="Chaussures" /> Chaussures</li>
                 </ul>
             </div>
 
             <div class="filter-price">
                 <h4>Price</h4>
-                <input type="range" id="price-filter" min="0" max="1000" step="10"/>
-                <span id="price-value">Max: $1000</span>
+                <input type="range" id="price-filter" min="0" max="100000" step="10"/>
+                <span id="price-value">Max: 100000 FCFA</span>
             </div>
 
             <div class="filter-rating">
                 <h4>Rating</h4>
                 <ul>
-                    <li><input type="radio" name="rating" value="5"> 5 Stars</li>
-                    <li><input type="radio" name="rating" value="4"> 4 Stars & up</li>
-                    <li><input type="radio" name="rating" value="3"> 3 Stars & up</li>
+                    <li><input type="radio" name="rating" value="★★★★★"> 5 Stars</li>
+                    <li><input type="radio" name="rating" value="★★★★"> 4 Stars & up</li>
+                    <li><input type="radio" name="rating" value="★★★"> 3 Stars & up</li>
                 </ul>
             </div>
         </aside>
 
         <!-- Product Grid -->
-        <section class="product-list">
-          
-        </section>
+        <section class="product-list"></section>
     </main>
 
     <!-- Footer -->

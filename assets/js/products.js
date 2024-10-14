@@ -1,46 +1,81 @@
-document.addEventListener("DOMContentLoaded",function(){
-const productList = document.querySelector(".product-list");
+document.addEventListener("DOMContentLoaded", () => {
+    const productList = document.querySelector(".product-list");
 
-document.getElementById('price-filter').addEventListener('input', function() {
-    let priceValue = document.getElementById('price-filter').value;
-    document.getElementById('price-value').textContent = `Max: $${priceValue}`;
-});
+    // Récupérer les valeurs de filtrage
+    const getFilters = () => {
+        const selectedCategories = Array.from(document.querySelectorAll('.filter-category input[type="checkbox"]:checked'))
+            .map(el => el.nextSibling.textContent.trim());
+        const maxPrice = document.querySelector('#price-filter').value;
+        const selectedRating = document.querySelector('input[name="rating"]:checked')?.value || '';
 
-document.getElementById('sort').addEventListener('change', function() {
-    const sortBy = this.value;
-    // Sort products based on the selected option (add sorting logic here)
-    console.log("Sorting by: " + sortBy);
-});
+        return { selectedCategories, maxPrice, selectedRating };
+    };
 
-// Implement the search functionalityq
-document.getElementById('search-input').addEventListener('input', function() {
-    const query = this.value.toLowerCase();
-    const productCards = document.querySelectorAll('.product-card');
-    
-    productCards.forEach(card => {
-        const productName = card.querySelector('h2').textContent.toLowerCase();
-        if (productName.includes(query)) {
-            card.style.display = 'block';
-        } else {
-            card.style.display = 'none';
+    // Convertir les étoiles en valeurs numériques
+    const ratingToValue = (rating) => {
+        switch (rating) {
+            case '★★★★★': return 5;
+            case '★★★★': return 4;
+            case '★★★': return 3;
+            default: return 0; // Si aucune note correspond
         }
+    };
+
+    // Filtrer les produits en fonction des critères sélectionnés
+    const filterProducts = () => {
+        const filters = getFilters();
+        const searchQuery = document.querySelector('#search-input').value.toLowerCase();
+        const productCards = document.querySelectorAll('.product-card');
+
+        productCards.forEach(card => {
+            const productName = card.querySelector('h2').textContent.toLowerCase();
+            const productCategory = card.querySelector('.product-category').textContent;
+            const productPrice = parseInt(card.querySelector('.product-price').textContent.replace(' FCFA', ''));
+            const productRating = ratingToValue(card.querySelector('.rating').textContent.trim());
+
+            const matchesSearch = productName.includes(searchQuery);
+            const matchesCategory = filters.selectedCategories.length === 0 || filters.selectedCategories.includes(productCategory);
+            const matchesPrice = productPrice <= filters.maxPrice;
+            const matchesRating = filters.selectedRating === '' || productRating >= ratingToValue(filters.selectedRating);
+
+            // Afficher ou masquer le produit en fonction des filtres
+            if (matchesSearch && matchesCategory && matchesPrice && matchesRating) {
+                card.style.display = 'block';
+            } else {
+                card.style.display = 'none';
+            }
+        });
+    };
+
+    // Écouter les changements de filtres
+    document.querySelector('#price-filter').addEventListener('input', function() {
+        document.querySelector('#price-value').textContent = `Max: ${this.value} FCFA`;
+        filterProducts();
     });
-});
 
+    document.querySelectorAll('.filter-category input[type="checkbox"]').forEach(checkbox => {
+        checkbox.addEventListener('change', filterProducts);
+    });
 
-// Générer la liste des produits
-data.forEach(product => {
-    productList.innerHTML += `
-        <div class="product-card" data-id="${product.id}">
-            <img src="${product.img}" alt="${product.name}">
-            <h2>${product.name}</h2>
-            <p>Prix: ${product.price} FCFA</p>
-            <p class="rating">⭐⭐⭐⭐☆</p>
-            <button class="add-to-cart" onclick="addToCart(${product.id})">Ajouter <i class="fas fa-shopping-cart"></i> </button>
-        </div>
-    `;
-});
+    document.querySelectorAll('input[name="rating"]').forEach(radio => {
+        radio.addEventListener('change', filterProducts);
+    });
 
+    document.querySelector('#search-input').addEventListener('input', filterProducts);
+
+    // Générer la liste des produits (exemple de génération dynamique)
+    data.forEach(product => {
+        productList.innerHTML += `
+            <div class="product-card" data-id="${product.id}">
+                <img src="${product.img}" alt="${product.name}">
+                <h2>${product.name}</h2>
+                <p class="product-category">${product.category}</p>
+                <p class="product-price">${product.price} FCFA</p>
+                <p class="rating">${product.rating}</p>
+            </div>
+        `;
+    });
+    
 // Ajouter un écouteur de clic à chaque produit
 const productCards = document.querySelectorAll('.product-card');
 productCards.forEach(card => {
@@ -50,4 +85,6 @@ productCards.forEach(card => {
     });
 });
 
+    // Appliquer les filtres lors du chargement initial
+    filterProducts();
 });

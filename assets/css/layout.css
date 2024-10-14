@@ -1,7 +1,7 @@
 
 /* header */
 .app-header {
-    position:fixed;
+    position:sticky;
     width: 100%;
     top: 0px;
     overflow: hidden;
@@ -97,7 +97,7 @@
 
 /* navbar */
 .app-nav {
-    position: fixed;
+    position: sticky;
     width: 100%;
     top: 80px;
     padding: 1rem;
