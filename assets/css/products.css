@@ -65,6 +65,13 @@ aside.filters {
     margin-bottom: 10px;
 }
 
+.products-zone h2{
+    margin: 20px;
+    font-size: 1rem;
+    font-family: "Roboto";
+    font-weight: 600;
+ }
+
 /* Product Grid */
 .product-list {
     display: flex;
@@ -161,6 +168,12 @@ footer p {
         margin-bottom: 20px;
     }
 
+    .products-zone h2{
+        text-align: center;
+        font-size: 0.9rem;
+        margin: 0.2rem;
+     }
+
     .product-list {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
@@ -174,14 +187,3 @@ footer p {
     }
 }
 
-/* Tablets (max-width: 900px) */
-@media screen and (max-width: 900px) {
-    .product-list {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .search-bar input {
-        width: 80%;
-    }
-}

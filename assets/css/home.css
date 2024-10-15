@@ -92,7 +92,6 @@ figure img {
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
-    gap: 1rem;
 }
 
 .arrival-container .card {
@@ -274,7 +273,7 @@ figure img {
 
 .recit-article p {
     text-align: start;
-    font-size: 2.6rem;
+    font-size: 2rem;
     font-family: "Roboto";
 }
 
@@ -354,15 +353,40 @@ figure img {
     .new-arrived{
         width: 100%;
     }
+
     .arrival-container {
+        margin: 1rem;
         display: grid;
-        grid-template-columns: repeat(2, 1fr); /* Grille de 2 colonnes */
-        gap: 0.5rem; /* Ajuste l'écart entre les colonnes */
-        width: 100%; /* Prendre toute la largeur disponible */
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.5rem; /* Prendre toute la largeur disponible */
     }
 
     .arrival-container .card {
         width: 100%; /* Prendre toute la largeur dans la colonne */
+    }
+
+    .card img {
+        width: 100%;
+        height: 15vh;
+    }
+    
+    .card-info {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 0.8rem
+    }
+    
+    .card-info h2 {
+        font-size: 0.8rem;
+        font-family: Montserrat, sans-serif;
+        font-weight: 600;
+    }
+    
+    .card-info p {
+        font-size: 0.8rem;
+        font-family: Montserrat, sans-serif;
+        color: orangered;
     }
 
     .profil-container-active,
