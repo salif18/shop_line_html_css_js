@@ -127,18 +127,24 @@
 
 /* footer */
 .app-footer {
-    height: 20vh;
+    /* height: 20vh;
     color: #f0f1f5;
     background-color: #121212;
     padding: 1rem;
     display: flex;
     gap: 1rem;
-    align-items: center;
+    align-items: center; */
+    text-align: center;
+    padding: 20px;
+    background-color: #202020;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+    color: #fff;
 }
 
 .footer-title h1 {
     font-size: 1rem;
-    font-family: "Roboto";
+    font-family: "Montserrat";
+    margin: 5px 0;
 }
 
 .footer-links {
@@ -147,9 +153,9 @@
 }
 
 .footer-links a {
+    margin: 5px 0;
     font-family: "Montserrat";
     font-size: 1rem;
-    font-weight: 500;
     color: #f0f1f5;
 }
 

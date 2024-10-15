@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 <img src="${item.img}" alt="${item.name}" />
                 <section class="card-info">
                     <h2>${item.name}</h2>
-                    <p>$${item.price}</p>
+                    <p>${item.price} FCFA</p>
                 </section>
             `;
             div.addEventListener('click', (e) => {

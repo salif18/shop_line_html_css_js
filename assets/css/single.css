@@ -232,7 +232,9 @@ footer p {
     }
 
     .image-gallery {
+        align-items: center;
         justify-content: center;
+        border: none;
     }
 
     .description {

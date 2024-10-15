@@ -103,6 +103,7 @@ figure img {
     align-items: center;
     padding: 1rem;
     background-color: #f0f1f5;
+    margin: 0.4rem;
 }
 
 .card img {
@@ -379,6 +380,7 @@ figure img {
 
     .arrival-container .card {
         width: 100%; /* Prendre toute la largeur dans la colonne */
+        height: 25vh;
     }
 
     .card img {
