@@ -68,7 +68,8 @@ aside.filters {
 /* Product Grid */
 .product-list {
     display: flex;
-    align-items: center;
+    flex-wrap: wrap;
+    min-height: 100vh;
 }
 
 .product-card {

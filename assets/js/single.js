@@ -48,25 +48,20 @@ document.addEventListener('DOMContentLoaded', () => {
             </button>
         `;
         // Afficher la galerie d'images avec les images spécifiques du produit
-        renderImageGallery(product.img);
+        renderImageGallery(product);
     } else {
         productDetail.innerHTML = "<p>Produit non trouvé</p>";
     }
 
    
     // Fonction pour générer dynamiquement la galerie d'images
-    function renderImageGallery(imagePrincipalProduct) {
-        const imageGallery = [
-            `${basePath}/assets/images/watch.png`,
-            `${basePath}/assets/images/img.png`,
-            `${basePath}/assets/images/watch.png`
-        ];
-
+    function renderImageGallery(product) {
+       
         const productImageContainer = document.querySelector(".product-images");
         productImageContainer.innerHTML = `
-            <img id="main-image" src="${imagePrincipalProduct}" alt="Produit">
+            <img id="main-image" src="${product.img}" alt="Produit">
             <div class="image-gallery">
-                ${imageGallery.map(src => 
+                ${product.gallery.map(src => 
                     `<img src="${src}" alt="Produit" class="thumbnail" onclick="changeImage('${src}')">`
                 ).join('')}
             </div>
