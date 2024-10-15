@@ -29,12 +29,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
         productCards.forEach(card => {
             const productName = card.querySelector('h2').textContent.toLowerCase();
-            const productCategory = card.querySelector('.product-category').textContent;
-            const productSousCategory = card.querySelector('.product-sous-category').textContent;
+            const productCategory = card.querySelector('.product-category').textContent.toLowerCase();
+            const productSousCategory = card.querySelector('.product-sous-category').textContent.toLowerCase();
             const productPrice = parseInt(card.querySelector('.product-price').textContent.replace(' FCFA', ''));
             const productRating = ratingToValue(card.querySelector('.rating').textContent.trim());
 
-            const matchesSearch = productName.includes(searchQuery);
+            const matchesSearch = productName.includes(searchQuery) || productCategory.includes(searchQuery) || productSousCategory.includes(searchQuery) ;
             const matchesCategory = filters.selectedCategories.length === 0 || filters.selectedCategories.includes(productCategory) || filters.selectedCategories.includes(productSousCategory);;
             const matchesPrice = productPrice <= filters.maxPrice;
             const matchesRating = filters.selectedRating === '' || productRating >= ratingToValue(filters.selectedRating);
