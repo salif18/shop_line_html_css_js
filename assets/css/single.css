@@ -55,6 +55,8 @@ main {
     align-items: center;
     justify-content: center;
     margin-top: 25px;
+    border: 2px solid #202020;
+    border-radius: 20px;
 }
 
 .image-gallery .thumbnail {
@@ -137,7 +139,7 @@ main {
     height: 300px;
     margin: 0.8rem;
     border-radius: 5px;
-    width: 15%;
+    width: 200px;
     display: flex;
     gap: 0.2rem;
     flex-direction: column;
