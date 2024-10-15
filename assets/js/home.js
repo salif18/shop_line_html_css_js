@@ -43,7 +43,7 @@ document.addEventListener("DOMContentLoaded", () => {
     };
 
     const displayArticleSlider = () => {
-        data.forEach(item => {
+        data.slice(0,8).forEach(item => {
             const div = document.createElement("div");
             div.classList.add("card");
             div.innerHTML = `
