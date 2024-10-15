@@ -120,8 +120,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Filtrer les produits liés
         const marksArray = markData.filter((item) =>
-            uniqueMarques.includes(item.name) &&// Vérifie si la marque est dans la liste unique 
-            item.id !== product.id  // Exclure le produit actuel
+            uniqueMarques.includes(item.name)// Vérifie si la marque est dans la liste unique 
+            
         );
 
 
