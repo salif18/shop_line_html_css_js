@@ -158,7 +158,7 @@
     /* Style général */
     .app-header {
         flex-direction: column;
-        align-items: flex-start;
+        /* align-items: flex-start; */
         padding: 0.5rem;
         height: 130px;
     }
@@ -173,8 +173,11 @@
         gap: 10px;
     }
 
+    .header-rigth label{
+        margin-bottom: 10px;
+    }
     .header-rigth label input {
-        width: 100%;
+        width: 250px;
     }
 
     .app-nav {
