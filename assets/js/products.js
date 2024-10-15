@@ -30,11 +30,12 @@ document.addEventListener("DOMContentLoaded", () => {
         productCards.forEach(card => {
             const productName = card.querySelector('h2').textContent.toLowerCase();
             const productCategory = card.querySelector('.product-category').textContent;
+            const productSousCategory = card.querySelector('.product-sous-category').textContent;
             const productPrice = parseInt(card.querySelector('.product-price').textContent.replace(' FCFA', ''));
             const productRating = ratingToValue(card.querySelector('.rating').textContent.trim());
 
             const matchesSearch = productName.includes(searchQuery);
-            const matchesCategory = filters.selectedCategories.length === 0 || filters.selectedCategories.includes(productCategory);
+            const matchesCategory = filters.selectedCategories.length === 0 || filters.selectedCategories.includes(productCategory) || filters.selectedCategories.includes(productSousCategory);;
             const matchesPrice = productPrice <= filters.maxPrice;
             const matchesRating = filters.selectedRating === '' || productRating >= ratingToValue(filters.selectedRating);
 
@@ -70,6 +71,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 <img src="${product.img}" alt="${product.name}">
                 <h2>${product.name}</h2>
                 <p class="product-category">${product.category}</p>
+                <p class="product-sous-category">${product.sousCategory}</p>
                 <p class="product-price">${product.price} FCFA</p>
                 <p class="rating">${product.rating}</p>
             </div>
