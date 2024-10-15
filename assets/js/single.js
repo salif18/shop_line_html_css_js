@@ -22,7 +22,10 @@ document.addEventListener('DOMContentLoaded', () => {
         productDetail.innerHTML = `
             <h2>${product.name}</h2>
             <p class="price">${product.price} FCFA </p>
-            <p class="rating">★★★★★ (200 avis)</p>
+            <p class="rating">★★★★★ (${product.avis})</p>
+            <h2 class="">${product.category}</h2>
+            <h2 class="">${product.sousCategory}</h2>
+            <h2 class="">${product.marque}</h2>
             <p class="description">${product.description}</p>
 
             <div class="product-options">
