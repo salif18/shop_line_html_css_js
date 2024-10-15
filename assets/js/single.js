@@ -1,5 +1,5 @@
- // Fonction pour changer l'image principale en fonction de l'image sélectionnée
- function changeImage(imgSrc) {
+// Fonction pour changer l'image principale en fonction de l'image sélectionnée
+function changeImage(imgSrc) {
     document.querySelector('#main-image').src = imgSrc;
 }
 
@@ -52,22 +52,86 @@ document.addEventListener('DOMContentLoaded', () => {
         `;
         // Afficher la galerie d'images avec les images spécifiques du produit
         renderImageGallery(product);
+        productLier(product);
     } else {
         productDetail.innerHTML = "<p>Produit non trouvé</p>";
     }
 
-   
+
     // Fonction pour générer dynamiquement la galerie d'images
     function renderImageGallery(product) {
-       
+
         const productImageContainer = document.querySelector(".product-images");
         productImageContainer.innerHTML = `
             <img id="main-image" src="${product.img}" alt="Produit">
             <div class="image-gallery">
-                ${product.gallery.map(src => 
-                    `<img src="${src}" alt="Produit" class="thumbnail" onclick="changeImage('${src}')">`
-                ).join('')}
+                ${product.gallery.map(src =>
+            `<img src="${src}" alt="Produit" class="thumbnail" onclick="changeImage('${src}')">`
+        ).join('')}
             </div>
         `;
+    }
+    // Fonction pour afficher les produits liés
+    function productLier(product) {
+        const productsItem = document.querySelector(".produits-items-lies");
+
+        // Filtrer les produits liés
+        const productsArray = data.filter((item) =>
+            (item.category === product.category ||
+                item.sousCategory === product.sousCategory ||
+                item.marque === product.marque) &&
+            item.id !== product.id  // Exclure le produit actuel
+        );
+        // Extraire les marques des produits liés sans doublons
+        const marques = productsArray.map(item => item.marque);
+        // Générer le HTML pour les produits liés
+
+        productsArray.forEach((element) => {
+            productsItem.innerHTML += `
+            <div class="product-card" data-id="${element.id}">
+                <img src="${element.img}" alt="${element.name}">
+                <h2>${element.name}</h2>
+                <p class="product-category">${element.category}</p>
+                <p class="product-sous-category">${element.sousCategory}</p>
+                <p class="product-price">${element.price} FCFA</p>
+                <p class="rating">${element.rating}</p>
+            </div>
+        `;
+        });
+
+        // Ajouter un écouteur de clic à chaque produit
+        const productCards = document.querySelectorAll('.product-card');
+        productCards.forEach(card => {
+            card.addEventListener('click', function () {
+                const productId = this.getAttribute('data-id'); // Récupérer l'ID du produit à partir de l'attribut data-id
+                window.location.href = `${basePath}/pages/single.html?id=${productId}`;
+            });
+        });
+
+        markLier(marques);
+    }
+
+    // Fonction pour afficher les marques liées
+    function markLier(marques) {
+        const marksItem = document.querySelector(".marques-items-lies");
+
+        // Filtrer les marques uniques pour éviter les doublons
+        const uniqueMarques = [...new Set(marques)];
+
+        // Filtrer les produits liés
+        const marksArray = markData.filter((item) =>
+            uniqueMarques.includes(item.name) &&// Vérifie si la marque est dans la liste unique 
+            item.id !== product.id  // Exclure le produit actuel
+        );
+
+
+        // Générer le HTML pour les marques liées
+        marksArray.forEach((marque) => {
+            marksItem.innerHTML += `
+          <div class="product-card" data-id="${marque.id}">
+                <img src="${marque.img}" alt="${marque.name}">
+            </div>
+            `;
+        });
     }
 });
