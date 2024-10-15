@@ -89,6 +89,8 @@ main {
 }
 
 .description {
+    font-size: 1.2rem;
+    width: 50%;
     margin-bottom: 20px;
 }
 
@@ -148,4 +150,10 @@ footer p {
     .image-gallery {
         justify-content: center;
     }
+
+    .description {
+        font-size: 0.8rem;
+        width: 100%;
+    }
+    
 }
