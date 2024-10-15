@@ -431,9 +431,10 @@ figure img {
     }
 
     figure img {
-        height: 13rem;
+        display: none;
+        /* height: 13rem;
         max-width: 100%;
-        margin-bottom: 1rem;
+        margin-bottom: 1rem; */
     }
 
     .articles-container {
