@@ -186,9 +186,24 @@ body {
 
 /* Réduction de la largeur pour les petits écrans */
 @media (max-width: 768px) {
+    .entete-cart{
+        margin-top: 160px;
+    }
     .cart-container {
         right: 20px;
-        width: 90%;
-        height: 90vh;
+        width: 95%;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    .card-cart{
+        flex-direction: column;
+        width: 100%;
+        margin: 0.8rem;
+    }
+    .card-cart-btn{
+        width: 100%;
+        margin: 5px;
+        justify-content: center;
     }
 }

@@ -37,10 +37,11 @@ const displayCartData = () => {
                         <button class="btn-minus" data-id="${item.id}">-</button>
                         <span class="qty">${item.qty}</span>
                         <button class="btn-plus" data-id="${item.id}">+</button>
-                    </section>
-                    <button class="btn-remove-cart" onclick="removeFromCart(${item.id})">
+                         <button class="btn-remove-cart" onclick="removeFromCart(${item.id})">
                         <i class="fas fa-trash"></i>
                     </button>
+                    </section>
+                   
                 `;
 
                 // Gestion des événements pour augmenter/diminuer la quantité
