@@ -56,7 +56,7 @@
         if (cartItem) {
             cartItem.qty += 1; // Si le produit est déjà dans le panier, augmenter la quantité
         } else if (product) {
-            cart.push({ ...product, qty: 1 });
+            cart = [...cart,{ ...product, qty: 1 }];
         }
         saveCart();
         displayCartData(); // Réafficher les données du panier
