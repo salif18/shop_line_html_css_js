@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
     const submitCommande = document.querySelector(".btn-submit-address");
-
+    
     // Sélection des éléments dans un objet
     const fields = {
         userName: document.querySelector(".myNom"),

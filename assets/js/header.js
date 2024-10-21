@@ -12,7 +12,10 @@ document.addEventListener("DOMContentLoaded", function () {
     </section>
     <section class="header-rigth">
     <ul class="list-link">
-     <li class="cart-icon-qty"><i class="fas fa-shopping-cart"></i><span class="cartqty"></span></li>
+     <li class="cart-icon-qty">
+       <i class="fas fa-shopping-cart"></i>
+       <span class="cartqty"></span>
+     </li>
      <li><i class="fas fa-user user-icon"></i></li>
      ${token ? '' : `<li><a href="${basePath}/pages/login.html">Connexion</a></li>`}
      ${token ? '' : `<li><a href="${basePath}/pages/signup.html">S'inscrire</a></li>`}
@@ -21,7 +24,31 @@ document.addEventListener("DOMContentLoaded", function () {
     </section>
     <span class="menu-barre"><i class="fa-solid fa-bars"></i></span>
     `;
+
+    // Si besoin d'un eventListener supplémentaire
+    document.querySelector(".fa-shopping-cart").addEventListener("click", ()=>{
+        navigueToCart();
+    });
     }
 
     displayHeader();
+
+    // Appeler une fonction ici pour mettre à jour la quantité du panier
+    updateCartQty();
 });
+
+// Fonction pour mettre à jour la quantité dans l'élément .cartqty
+function updateCartQty() {
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    const totalQty = cart.reduce((acc, item) => acc + item.qty, 0);
+
+    const cartQtyElement = document.querySelector(".cartqty");
+    if (cartQtyElement) {
+        cartQtyElement.textContent = totalQty;
+    }
+}
+
+// Fonction pour naviguer vers la page du panier
+function navigueToCart (){
+    window.location.href =`${basePath}/pages/panier.html`;
+}
