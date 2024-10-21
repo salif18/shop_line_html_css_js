@@ -150,6 +150,7 @@ body {
 }
 
 .btn-remove-cart{
+    display: flex;
     margin-left: 10px;
     border: none;
     cursor: pointer;

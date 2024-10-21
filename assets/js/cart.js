@@ -38,8 +38,8 @@ const displayCartData = () => {
                         <span class="qty">${item.qty}</span>
                         <button class="btn-plus" data-id="${item.id}">+</button>
                          <button class="btn-remove-cart" onclick="removeFromCart(${item.id})">
-                        <i class="fas fa-trash"></i>
-                    </button>
+                         <i class="fas fa-trash"></i>
+                         </button>
                     </section>
                    
                 `;
@@ -48,9 +48,10 @@ const displayCartData = () => {
                 div.querySelector(".btn-minus").addEventListener("click", () => {
                     if (item.qty > 1) {
                         item.qty -= 1;
-                    } else {
-                        removeFromCart(item.id); // Supprimer l'élément s'il n'en reste plus
-                    }
+                    } 
+                    // else {
+                    //     removeFromCart(item.id); // Supprimer l'élément s'il n'en reste plus
+                    // }
                     saveCart(); // Sauvegarder après la mise à jour
                     displayCartData(); // Réafficher les éléments du panier
                     calculeTotal(); // Recalculer le total
