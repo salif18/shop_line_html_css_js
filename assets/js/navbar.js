@@ -13,4 +13,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     displayNavBar();
+    fixeNavbar(navBar)
 });
+
+function fixeNavbar(navbar){
+    if (document.documentElement.scrollTop > 20) {
+         navbar.style.position ="f"
+    }else{
+         navbar.style.position ="none"
+    }
+};

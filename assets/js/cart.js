@@ -64,6 +64,11 @@ const displayCartData = () => {
                     calculeTotal(); // Recalculer le total
                 });
 
+                div.querySelector(".btn-remove-cart").addEventListener("click", () => {
+                    removeFromCart(item.id)
+                 });
+ 
+
                 // Ajouter l'élément au container
                 containerItem.appendChild(div);
             });

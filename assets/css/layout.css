@@ -1,9 +1,10 @@
 
 /* header */
 .app-header {
-    position:fixed;
+    position:sticky;
     width: 100%;
-    top: 0px;
+    /* top: 0;
+    left: 0; */
     overflow: hidden;
     padding: 1rem;
     display: flex;
@@ -97,9 +98,9 @@
 
 /* navbar */
 .app-nav {
-    position: fixed;
+    /* position: sticky; */
     width: 100%;
-    top: 80px;
+    /* top: 80px; */
     padding: 1rem;
     display: flex;
     justify-content: end;

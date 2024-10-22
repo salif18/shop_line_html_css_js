@@ -32,10 +32,18 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     displayHeader();
-
+    fixeHeader(header)
     // Appeler une fonction ici pour mettre à jour la quantité du panier
     updateCartQty();
 });
+
+function fixeHeader(header){
+    if (document.documentElement.scrollTop > 20) {
+         header.style.position ="fixed"
+    }else{
+         header.style.position ="sticky"
+    }
+};
 
 // Fonction pour mettre à jour la quantité dans l'élément .cartqty
 function updateCartQty() {

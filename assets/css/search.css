@@ -18,15 +18,47 @@ body {
     padding: 1rem;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    align-items: flex-start;
+    justify-content:flex-start;
     gap: 2rem;
     min-height: 100vh;
 }
 
+.search-container-header{
+    height: auto;
+    padding: 1rem;
+    margin: 1rem 0;
+}
+
+.search-container-header h2{
+    font-size: 1.1em;
+    font-family: "Montserrat";
+    font-weight: 600;
+}
+
+.search-container-header span{
+    font-size: 1em;
+    font-family: "Roboto";
+    margin: 10px 0;
+}
+
+.card-historiq{
+    display: flex;
+    align-items: start;
+    justify-content: space-between;
+    background-color: #f0f1f5;
+    padding: 1rem;
+   width:  100%;
+
+}
+
+.card-historiq h2{
+    font-size: 1em;
+    font-family: "Montserrat";
+}
 /* Affichage des résultats */
 .search-container .reponse-data {
-    margin-top: 130px;
+    /* margin-top: 130px; */
     display: flex;
     flex-wrap: wrap;
     gap: 0.2rem;
@@ -98,11 +130,12 @@ body {
 /* Petits écrans (téléphones entre 480px et 768px) */
 @media (max-width: 768px) {
     .search-container {
+        align-items: center;
         gap: 1rem;
     }
 
     .search-container .reponse-data {
-        margin-top: 160px;
+        /* margin-top: 160px; */
         display: grid;
         align-items: center;
         justify-content: center;
@@ -133,7 +166,7 @@ body {
 /* Très petits écrans (moins de 480px) */
 @media (max-width: 480px) {
     .search-container .reponse-data {
-        margin-top: 160px;
+        /* margin-top: 160px; */
         display: grid;
         grid-template-columns: repeat(2, 1fr); /* Deux colonnes */
         gap: 1rem;
