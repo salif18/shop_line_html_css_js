@@ -65,6 +65,10 @@ aside.filters {
     margin-bottom: 10px;
 }
 
+.filter-rating{
+    margin-top: 15px;
+}
+
 .products-zone{
     /* width: 100%; */
     padding: 2rem;
@@ -119,7 +123,7 @@ aside.filters {
     color: #e74c3c;
 }
 
-.product-list .product-card p.rating {
+.product-list .product-card .rating {
     color: #f39c12;
 }
 
@@ -141,6 +145,20 @@ aside.filters {
 .add-to-cart .fa-shopping-cart{
     color: orangered;
 }
+
+.product-list .product-card .rating span{
+    font-size: 1.5rem;
+    color: gray;
+  }
+
+  .product-list .product-card .rating span.filled {
+    color:#f39c12;
+  }
+
+  .product-list .product-card .rating-message {
+    margin-top: 10px;
+    font-weight: bold;
+  }
 
 
 /* Footer Styling */

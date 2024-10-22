@@ -87,10 +87,10 @@ main {
     margin-bottom: 10px;
 }
 
-.rating {
+/* .rating {
     color: #f39c12;
     margin-bottom: 20px;
-}
+} */
 
 .description {
     font-size: 1.2rem;
@@ -197,6 +197,26 @@ main {
     height: 20vh;
     border-radius: 10px;
     background-color: #f0f1f5;
+}
+
+.star {
+    font-size: 2rem;
+    cursor: pointer;
+    color: gray;
+  }
+  .star.selected {
+    color: gold;
+  }
+
+  .product-info .rating .star {
+    cursor: pointer;
+    font-size: 24px; /* Taille des étoiles */
+    color: lightgray; /* Couleur par défaut */
+}
+
+.product-info .rating .star.filled,
+.star.selected {
+    color: gold; /* Couleur des étoiles remplies */
 }
 
 

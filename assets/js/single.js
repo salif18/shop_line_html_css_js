@@ -49,13 +49,50 @@ document.addEventListener('DOMContentLoaded', () => {
             <button id="add-to-cart" onclick="addToCart(${product.id})">
                 Ajouter <i class="fas fa-shopping-cart"></i>
             </button>
+            <section>
+            <h2>Donner une note</h2>
+             <section id="stars">
+                   <span class="star" data-value="1">★</span>
+                   <span class="star" data-value="2">★</span>
+                   <span class="star" data-value="3">★</span>
+                   <span class="star" data-value="4">★</span>
+                   <span class="star" data-value="5">★</span>
+            </section>
+             <span class='rating-message'></span>
+            </section>
         `;
         // Afficher la galerie d'images avec les images spécifiques du produit
         renderImageGallery(product);
         productLier(product);
+        
+        // Générer les étoiles de notation
+        generatedStars(product.rating); // Utilisez `product.avis` pour obtenir la notation
     } else {
         productDetail.innerHTML = "<p>Produit non trouvé</p>";
     }
+
+    
+        // Générer les étoiles
+    function generatedStars(rating) {
+        // Affichage des étoiles
+        const maxStars = 5;
+        const starRating = Math.round((parseInt(rating) / 100) * maxStars);
+        const starsContainer = document.getElementById('product-rating'); // Utilisation de l'ID
+
+        // Vider le conteneur avant d'ajouter des étoiles
+        starsContainer.innerHTML = '';
+
+        // Générer les étoiles
+        for (let note = 1; note <= maxStars; note++) {
+            const star = document.createElement('span');
+            star.textContent = '★'; // Caractère étoile
+            if (note <= starRating) {
+                star.classList.add('filled'); // Ajouter une classe pour les étoiles remplies
+            }
+            starsContainer.appendChild(star); // Ajouter l'étoile au conteneur
+        }
+    }
+
 
 
     // Fonction pour générer dynamiquement la galerie d'images
@@ -98,6 +135,7 @@ document.addEventListener('DOMContentLoaded', () => {
             </div>
         `;
         });
+        
 
         // Ajouter un écouteur de clic à chaque produit
         const productCards = document.querySelectorAll('.product-card');
@@ -134,4 +172,30 @@ document.addEventListener('DOMContentLoaded', () => {
             `;
         });
     }
+
+    // NOTATION
+     // Sélectionne tous les éléments étoile
+     const stars = document.querySelectorAll('.star');
+     const ratingMessage = document.querySelector('.rating-message');
+     
+     // Fonction pour mettre à jour l'affichage des étoiles
+     function updateStars(rating) {
+       stars.forEach(star => {
+         // Si l'étoile a une valeur inférieure ou égale à la note, on lui ajoute la classe "selected"
+         if (star.getAttribute('data-value') <= rating) {
+           star.classList.add('selected');
+         } else {
+           star.classList.remove('selected');
+         }
+       });
+     }
+ 
+     // Ajoute des écouteurs d'événements pour chaque étoile
+     stars.forEach(star => {
+       star.addEventListener('click', function() {
+         const rating = this.getAttribute('data-value');
+         updateStars(rating);
+         ratingMessage.textContent = `Vous avez donné une note de ${rating} étoiles.`;
+       });
+     });
 });
