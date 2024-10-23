@@ -214,9 +214,10 @@ document.addEventListener('DOMContentLoaded', () => {
             }
 
             updateStars(rating);
+            // envoie vers server
+        console.log(formData)
             ratingMessage.textContent = `Vous avez donné une note de ${rating} étoiles.`;
         });
-        // envoie vers server
-        console.log(formData)
+        
     });
 });
