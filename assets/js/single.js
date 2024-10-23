@@ -191,8 +191,15 @@ document.addEventListener('DOMContentLoaded', () => {
     stars.forEach(star => {
         star.addEventListener('click', function () {
             const rating = star.getAttribute('data-value');
+            const formData ={
+                userI:token,
+                rating:rating
+            }
+
             updateStars(rating);
             ratingMessage.textContent = `Vous avez donné une note de ${rating} étoiles.`;
         });
+        // envoie vers server
+        console.log(formData)
     });
 });
