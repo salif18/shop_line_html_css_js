@@ -58,7 +58,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         zoneReponse.innerHTML = ''; // Vide la zone avant d'afficher les résultats
         titleResultat.innerHTML = "Résultats";
-        resultaNumber.innerHTML = `Plus de ${dataFilter.length} résultats pour "${value}"`;
+        resultaNumber.innerHTML = `Nous avons ${dataFilter.length} varietés de ${value} dans notre store`;
         
         dataFilter.forEach(item => {
             const div = document.createElement("div");
