@@ -49,33 +49,29 @@ document.addEventListener("DOMContentLoaded", () => {
                     <p class="product-category">${product.category}</p>
                     <p class="product-sous-category">${product.sousCategory}</p>
                     <p class="product-price">${product.price} FCFA</p>
-                    <div class="rating"></div>
+                    <div class="rating">${ generatedStars(product.rating)}</div>
                 </div>
             `;
 
-           generatedStars(product.rating, product.id);
+          
         });
 
         // regenrer les etoiles
-        function generatedStars(rating, productId){
-            // Affichage des étoiles
-            const maxStars = 5;
-            const starRating = Math.round(rating/ 20);
-            const starsContainer = document.querySelector(`.product-card[data-id="${productId}"] .rating`);
- 
-            // Vider le conteneur avant d'ajouter des étoiles
-            starsContainer.innerHTML = '';
- 
-            // Générer les étoiles
-            for (let note = 1; note <= maxStars; note++) {
-                const star = document.createElement('span');
-                star.textContent = '★'; // Caractère étoile
-                if (note <= starRating) {
-                    star.classList.add('filled'); // Ajouter une classe pour les étoiles remplies
-                }
-                starsContainer.appendChild(star); // Ajouter l'étoile au conteneur
-            }
-         }
+    function generatedStars(rating) {
+        // Affichage des étoiles
+        const maxStars = 5;
+        const starRating = Math.round(rating / 20);
+        
+        let starsHtml = '';
+        // Générer les étoiles
+        for (let note = 1; note <= maxStars; note++) {
+              // Ajouter une étoile remplie si `note` est inférieur ou égal à la note calculée
+              starsHtml += (note <= starRating) 
+              ? '<span class="star filled">★</span>'  // Étoile remplie
+              : '<span class="star">★</span>';        // Étoile vide
+        }
+        return starsHtml; // Retourner toutes les étoiles en HTML
+    }
 
         // Ajouter des écouteurs de clic pour chaque produit affiché
         document.querySelectorAll('.product-card').forEach(card => {
