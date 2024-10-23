@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     
     // Gestion du clic sur l'icône utilisateur
-    userBtn.addEventListener("click", (e) => {
+    userBtn.addEventListener("mouseover", (e) => {
         e.preventDefault();
      
         if (profilContainer.style.display === "none") {

@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
     const header = document.querySelector(".app-header");
-
+    const profil = document.querySelector(".profil-container");
     // rendu de header
     const displayHeader = () => {
         // Vérifie si le token est présent
@@ -31,11 +31,38 @@ document.addEventListener("DOMContentLoaded", function () {
     });
     }
 
+
+    // rendu de header
+    const displayProfil = () => {
+        profil.innerHTML = `
+                <div class="profil-header">
+                    <div class="user-info-row">
+                        <!-- <img class="user-photo" src="" alt="" /> -->
+                        <i class="fas fa-user"></i>
+                        <div class="user-name-column">
+                            <h2 id="user-name"></h2>
+                            <p id="user-email"></p>
+                        </div>
+                    </div>
+                    <i class="fas fa-remove"></i> <!-- Icône de fermeture -->
+                </div>
+
+                <section class="profil-content">
+                    <button class="btn-logout"> <i
+                            class="fas fa-sign-out-alt"></i>Se
+                        déconnecter</button>
+                </section>
+    `;
+    }
+
     displayHeader();
+    displayProfil()
     fixeHeader(header)
     // Appeler une fonction ici pour mettre à jour la quantité du panier
     updateCartQty();
 });
+
+
 
 function fixeHeader(header){
     if (document.documentElement.scrollTop > 20) {
