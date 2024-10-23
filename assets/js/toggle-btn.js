@@ -7,18 +7,19 @@ document.addEventListener("DOMContentLoaded", () => {
     const nameUser = document.querySelector("#user-name");
     const emailUser = document.querySelector("#user-email");
 
-    
-    // Gestion du clic sur l'icône utilisateur
+    let isProfilVisible = false;
+
     userBtn.addEventListener("mouseover", (e) => {
         e.preventDefault();
-     
-        if (profilContainer.style.display === "none") {
+
+        if (!isProfilVisible) {
             profilContainer.style.display = "flex";
             profilContainer.setAttribute("aria-hidden", "false");
             setTimeout(() => {
                 profilContainer.style.opacity = 1;
                 profilContainer.style.transform = 'translateY(0)';
             }, 400);
+            isProfilVisible = true; // Met à jour l'état
         } else {
             profilContainer.style.opacity = '0';
             profilContainer.style.transform = 'translateY(10px)';
@@ -26,9 +27,10 @@ document.addEventListener("DOMContentLoaded", () => {
                 profilContainer.style.display = 'none';
                 profilContainer.setAttribute("aria-hidden", "true");
             }, 400);
+            isProfilVisible = false; // Met à jour l'état
         }
-       
     });
+
 
     // Fermer le profil avec l'icône de fermeture
     closeProfil.addEventListener("click", () => {
