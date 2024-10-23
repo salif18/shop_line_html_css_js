@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
         productDetail.innerHTML = `
             <h2>${product.name}</h2>
             <p class="price">${product.price} FCFA </p>
-            <p class="rating">★★★★★ (${product.avis})</p>
+            <div class="rating">★★★★★ (${product.avis})</div>
             <h2 class="">${product.category}</h2>
             <h2 class="">${product.sousCategory}</h2>
             <h2 class="">${product.marque}</h2>
@@ -49,7 +49,7 @@ document.addEventListener('DOMContentLoaded', () => {
             <button id="add-to-cart" onclick="addToCart(${product.id})">
                 Ajouter <i class="fas fa-shopping-cart"></i>
             </button>
-            <section>
+            <section class='zone-de-notation'>
             <h2>Donner une note</h2>
              <section id="stars">
                    <span class="star" data-value="1">★</span>
@@ -66,18 +66,18 @@ document.addEventListener('DOMContentLoaded', () => {
         productLier(product);
         
         // Générer les étoiles de notation
-        generatedStars(product.rating); // Utilisez `product.avis` pour obtenir la notation
+        generatedStarsOfSingleProduct(product); // Utilisez `product.avis` pour obtenir la notation
     } else {
         productDetail.innerHTML = "<p>Produit non trouvé</p>";
     }
 
     
         // Générer les étoiles
-    function generatedStars(rating) {
+    function generatedStarsOfSingleProduct(product) {
         // Affichage des étoiles
         const maxStars = 5;
-        const starRating = Math.round((parseInt(rating) / 100) * maxStars);
-        const starsContainer = document.getElementById('product-rating'); // Utilisation de l'ID
+        const starRating = Math.round((parseInt(product.rating) / 100) * maxStars);
+        const starsContainer = productDetail.querySelector('.rating')
 
         // Vider le conteneur avant d'ajouter des étoiles
         starsContainer.innerHTML = '';
@@ -131,9 +131,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 <p class="product-category">${element.category}</p>
                 <p class="product-sous-category">${element.sousCategory}</p>
                 <p class="product-price">${element.price} FCFA</p>
-                <p class="rating">${element.rating}</p>
+                <div class="rating"></div>
             </div>
         `;
+        generatedStars(element.rating, element.id);
         });
         
 
@@ -148,6 +149,28 @@ document.addEventListener('DOMContentLoaded', () => {
 
         markLier(marques);
     }
+
+     // regenrer les etoiles
+     function generatedStars(rating, productId){
+        // Affichage des étoiles
+        const maxStars = 5;
+        const starRating = Math.round((parseInt(rating)/ 100) * maxStars);
+        const starsContainer = document.querySelector(`.product-card[data-id="${productId}"] .rating`);
+
+        // Vider le conteneur avant d'ajouter des étoiles
+        starsContainer.innerHTML = '';
+
+        // Générer les étoiles
+        for (let note = 1; note <= maxStars; note++) {
+            const star = document.createElement('span');
+            star.textContent = '★'; // Caractère étoile
+            if (note <= starRating) {
+                star.classList.add('filled'); // Ajouter une classe pour les étoiles remplies
+            }
+            starsContainer.appendChild(star); // Ajouter l'étoile au conteneur
+        }
+     }
+
 
     // Fonction pour afficher les marques liées
     function markLier(marques) {
@@ -193,7 +216,7 @@ document.addEventListener('DOMContentLoaded', () => {
      // Ajoute des écouteurs d'événements pour chaque étoile
      stars.forEach(star => {
        star.addEventListener('click', function() {
-         const rating = this.getAttribute('data-value');
+         const rating = star.getAttribute('data-value');
          updateStars(rating);
          ratingMessage.textContent = `Vous avez donné une note de ${rating} étoiles.`;
        });

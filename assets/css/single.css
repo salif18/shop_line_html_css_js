@@ -81,18 +81,19 @@ main {
     margin-bottom: 10px;
 }
 
-.price {
+.product-info .price {
     font-size: 1.5em;
-    color: #e74c3c;
+    color: orangered;
     margin-bottom: 10px;
 }
 
-/* .rating {
-    color: #f39c12;
+.product-info .rating {
+    color: orangered;
+    font-size: 1.4em;
     margin-bottom: 20px;
-} */
+}
 
-.description {
+.product-info .description {
     font-size: 1.2rem;
     width: 50%;
     margin-bottom: 20px;
@@ -119,6 +120,24 @@ main {
 #add-to-cart:hover {
     background-color: rgba(255, 68, 0, 0.788);
 }
+
+.zone-de-notation{
+    margin-top: 30px;
+}
+
+.zone-de-notation h2{
+    font-family: "Montserrat";
+    font-size: 1.4em;
+}
+
+.zone-de-notation .star {
+    font-size: 2rem;
+    cursor: pointer;
+    color: gray;
+  }
+  .zone-de-notation .star.selected {
+    color: orangered;
+  }
 
 .produits-lies, .marques-lies{
     width: 100%;
@@ -165,9 +184,15 @@ main {
     color: #e74c3c;
 }
 
-.produits-items-lies .product-card p.rating {
-    color: #f39c12;
-}
+.produits-items-lies .product-card .rating span{
+    font-size: 1.3em;
+    color: gray;
+  }
+
+  .produits-items-lies .product-card .rating span.filled {
+    color:orangered;
+  }
+
 
 .marques-lies h2, .produits-lies h2{
     font-family: "Montserrat";
@@ -197,26 +222,6 @@ main {
     height: 20vh;
     border-radius: 10px;
     background-color: #f0f1f5;
-}
-
-.star {
-    font-size: 2rem;
-    cursor: pointer;
-    color: gray;
-  }
-  .star.selected {
-    color: gold;
-  }
-
-  .product-info .rating .star {
-    cursor: pointer;
-    font-size: 24px; /* Taille des étoiles */
-    color: lightgray; /* Couleur par défaut */
-}
-
-.product-info .rating .star.filled,
-.star.selected {
-    color: gold; /* Couleur des étoiles remplies */
 }
 
 

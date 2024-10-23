@@ -69,6 +69,10 @@ aside.filters {
     margin-top: 15px;
 }
 
+.filter-rating li{
+    color: orangered;
+}
+
 .products-zone{
     /* width: 100%; */
     padding: 2rem;
@@ -123,10 +127,6 @@ aside.filters {
     color: #e74c3c;
 }
 
-.product-list .product-card .rating {
-    color: #f39c12;
-}
-
 .product-list .product-card .add-to-cart{
     padding: 0.2rem;
     border: none;
@@ -147,12 +147,12 @@ aside.filters {
 }
 
 .product-list .product-card .rating span{
-    font-size: 1.5rem;
+    font-size: 1.3em;
     color: gray;
   }
 
   .product-list .product-card .rating span.filled {
-    color:#f39c12;
+    color:orangered;
   }
 
   .product-list .product-card .rating-message {
