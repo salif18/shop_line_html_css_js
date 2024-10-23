@@ -52,7 +52,12 @@ function updateCartQty() {
 
     const cartQtyElement = document.querySelector(".cartqty");
     if (cartQtyElement) {
+        if(cart.length > 0){
         cartQtyElement.textContent = totalQty;
+     
+        }else{
+               cartQtyElement.style.display="none"
+        }
     }
 }
 

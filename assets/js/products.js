@@ -60,7 +60,7 @@ document.addEventListener("DOMContentLoaded", () => {
         function generatedStars(rating, productId){
             // Affichage des étoiles
             const maxStars = 5;
-            const starRating = Math.round((parseInt(rating)/ 100) * maxStars);
+            const starRating = Math.round(rating/ 20);
             const starsContainer = document.querySelector(`.product-card[data-id="${productId}"] .rating`);
  
             // Vider le conteneur avant d'ajouter des étoiles

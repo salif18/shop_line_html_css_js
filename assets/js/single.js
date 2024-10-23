@@ -4,7 +4,7 @@ function changeImage(imgSrc) {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    const productDetail = document.querySelector(".product-info");
+    const productDetail = document.querySelector(".detail");
 
     // Fonction pour obtenir l'ID du produit depuis l'URL
     const getProductIdFromUrl = () => {
@@ -20,9 +20,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (product) {
         productDetail.innerHTML = `
+        <section class="product-info">
             <h2>${product.name}</h2>
             <p class="price">${product.price} FCFA </p>
-            <div class="rating">★★★★★ (${product.avis})</div>
+            <div class="rating">${generatedStarsOfSingleProduct(product.rating)} (${product.avis})</div>
             <h2 class="">${product.category}</h2>
             <h2 class="">${product.sousCategory}</h2>
             <h2 class="">${product.marque}</h2>
@@ -60,39 +61,33 @@ document.addEventListener('DOMContentLoaded', () => {
             </section>
              <span class='rating-message'></span>
             </section>
+        </section>
         `;
         // Afficher la galerie d'images avec les images spécifiques du produit
         renderImageGallery(product);
         productLier(product);
-        
-        // Générer les étoiles de notation
-        generatedStarsOfSingleProduct(product); // Utilisez `product.avis` pour obtenir la notation
+        console.log(product.rating)
+
     } else {
         productDetail.innerHTML = "<p>Produit non trouvé</p>";
     }
 
-    
-        // Générer les étoiles
-    function generatedStarsOfSingleProduct(product) {
-        // Affichage des étoiles
+
+    // Fonction pour générer les étoiles de notation pour un produit
+    function generatedStarsOfSingleProduct(rating) {
         const maxStars = 5;
-        const starRating = Math.round((parseInt(product.rating) / 100) * maxStars);
-        const starsContainer = productDetail.querySelector('.rating')
-
-        // Vider le conteneur avant d'ajouter des étoiles
-        starsContainer.innerHTML = '';
-
-        // Générer les étoiles
+        const starRating = Math.round(rating / 20); // Convertir la note de 100 à 5 étoiles
+        let starsHtml = '';
+        console.log("Rating du produit:", rating, " -> Stars:", starRating); // Debug : Afficher la note convertie
         for (let note = 1; note <= maxStars; note++) {
-            const star = document.createElement('span');
-            star.textContent = '★'; // Caractère étoile
-            if (note <= starRating) {
-                star.classList.add('filled'); // Ajouter une classe pour les étoiles remplies
-            }
-            starsContainer.appendChild(star); // Ajouter l'étoile au conteneur
+            // Ajouter une étoile remplie si `note` est inférieur ou égal à la note calculée
+            starsHtml += (note <= starRating) 
+            ? '<span class="star filled">★</span>'  // Étoile remplie
+            : '<span class="star">★</span>';        // Étoile vide
         }
-    }
 
+        return starsHtml; // Retourner toutes les étoiles en HTML
+    }
 
 
     // Fonction pour générer dynamiquement la galerie d'images
@@ -134,9 +129,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 <div class="rating"></div>
             </div>
         `;
-        generatedStars(element.rating, element.id);
+            generatedStars(element.rating, element.id);
         });
-        
+
 
         // Ajouter un écouteur de clic à chaque produit
         const productCards = document.querySelectorAll('.product-card');
@@ -150,16 +145,17 @@ document.addEventListener('DOMContentLoaded', () => {
         markLier(marques);
     }
 
-     // regenrer les etoiles
-     function generatedStars(rating, productId){
+    // regenrer les etoiles
+    function generatedStars(rating, productId) {
         // Affichage des étoiles
         const maxStars = 5;
-        const starRating = Math.round((parseInt(rating)/ 100) * maxStars);
+        const starRating = Math.round(rating / 20);
         const starsContainer = document.querySelector(`.product-card[data-id="${productId}"] .rating`);
 
         // Vider le conteneur avant d'ajouter des étoiles
-        starsContainer.innerHTML = '';
-
+        if (starsContainer) {
+            starsContainer.innerHTML = '';
+        }
         // Générer les étoiles
         for (let note = 1; note <= maxStars; note++) {
             const star = document.createElement('span');
@@ -169,7 +165,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
             starsContainer.appendChild(star); // Ajouter l'étoile au conteneur
         }
-     }
+    }
 
 
     // Fonction pour afficher les marques liées
@@ -182,7 +178,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // Filtrer les produits liés
         const marksArray = markData.filter((item) =>
             uniqueMarques.includes(item.name)// Vérifie si la marque est dans la liste unique 
-            
+
         );
 
 
@@ -197,28 +193,28 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // NOTATION
-     // Sélectionne tous les éléments étoile
-     const stars = document.querySelectorAll('.star');
-     const ratingMessage = document.querySelector('.rating-message');
-     
-     // Fonction pour mettre à jour l'affichage des étoiles
-     function updateStars(rating) {
-       stars.forEach(star => {
-         // Si l'étoile a une valeur inférieure ou égale à la note, on lui ajoute la classe "selected"
-         if (star.getAttribute('data-value') <= rating) {
-           star.classList.add('selected');
-         } else {
-           star.classList.remove('selected');
-         }
-       });
-     }
- 
-     // Ajoute des écouteurs d'événements pour chaque étoile
-     stars.forEach(star => {
-       star.addEventListener('click', function() {
-         const rating = star.getAttribute('data-value');
-         updateStars(rating);
-         ratingMessage.textContent = `Vous avez donné une note de ${rating} étoiles.`;
-       });
-     });
+    // Sélectionne tous les éléments étoile
+    const stars = document.querySelectorAll('.star');
+    const ratingMessage = document.querySelector('.rating-message');
+
+    // Fonction pour mettre à jour l'affichage des étoiles
+    function updateStars(rating) {
+        stars.forEach(star => {
+            // Si l'étoile a une valeur inférieure ou égale à la note, on lui ajoute la classe "selected"
+            if (star.getAttribute('data-value') <= rating) {
+                star.classList.add('selected');
+            } else {
+                star.classList.remove('selected');
+            }
+        });
+    }
+
+    // Ajoute des écouteurs d'événements pour chaque étoile
+    stars.forEach(star => {
+        star.addEventListener('click', function () {
+            const rating = star.getAttribute('data-value');
+            updateStars(rating);
+            ratingMessage.textContent = `Vous avez donné une note de ${rating} étoiles.`;
+        });
+    });
 });

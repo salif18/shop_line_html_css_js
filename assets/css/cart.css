@@ -12,7 +12,7 @@ body {
     padding: 0;
 }
 .entete-cart{
-    margin:140px 1rem 1rem;
+    margin:50px 1rem 1rem;
     padding: 1rem;
 }
 
@@ -206,7 +206,7 @@ body {
 /* Réduction de la largeur pour les petits écrans */
 @media (max-width: 768px) {
     .entete-cart{
-        margin-top: 160px;
+        margin-top: 50px;
     }
     .cart-container {
         right: 20px;

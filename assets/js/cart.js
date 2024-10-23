@@ -77,6 +77,7 @@ const displayCartData = () => {
             h2.classList.add("empty-cart");
             h2.innerHTML = "Votre panier est vide !!";
             containerItem.appendChild(h2);
+            addressBtn.style.display ='none'
         }
     } else {
         console.error('Élément ".cart-items" non trouvé dans le DOM');
