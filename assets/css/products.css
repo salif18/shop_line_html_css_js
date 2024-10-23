@@ -200,6 +200,8 @@ footer p {
 
     .products-zone{
         width: 100%;
+        align-items: center;
+        justify-content: center;
     }
 
 
