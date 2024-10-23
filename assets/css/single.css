@@ -16,7 +16,7 @@ body {
 
 
 /* Main Product Detail Section */
-main {
+.single-page-main {
     width: 100%;
     display: flex;
     justify-content: center;
@@ -93,7 +93,7 @@ main {
     margin-bottom: 20px;
 }
 
-.product-info .description {
+.description {
     font-size: 1.2rem;
     width: 50%;
     margin-bottom: 20px;

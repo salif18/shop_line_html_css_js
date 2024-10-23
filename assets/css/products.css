@@ -38,7 +38,7 @@ body {
 
 
 /* Main Layout */
-main {
+.product-page-main {
     display: flex;
     width: 100%;
     margin: 20px auto;
@@ -189,8 +189,9 @@ footer p {
     }
 
 
-    main {
+.product-page-main {
         flex-direction: column;
+       
     }
 
     aside.filters {
@@ -199,9 +200,10 @@ footer p {
     }
 
     .products-zone{
-        width: 100%;
+        /* width: 100%; */
         align-items: center;
         justify-content: center;
+        margin: 0;
     }
 
 
