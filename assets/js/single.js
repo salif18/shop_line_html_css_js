@@ -19,8 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const product = data.find(p => p.id == productId);
 
     if (product) {
-        productDetail.innerHTML = `
-       
+        productDetail.innerHTML = `    
             <h2>${product.name}</h2>
             <p class="price">${product.price} FCFA </p>
             <div class="rating">${generatedStars(product.rating)} (${product.rating})</div>
@@ -50,8 +49,9 @@ document.addEventListener('DOMContentLoaded', () => {
             <button id="add-to-cart" onclick="addToCart(${product.id})">
                 Ajouter <i class="fas fa-shopping-cart"></i>
             </button>
+
             <section class='zone-de-notation'>
-            <h2>Donner une note</h2>
+              <h2>Donner une note</h2>
              <section id="stars">
                    <span class="star" data-value="1">★</span>
                    <span class="star" data-value="2">★</span>

@@ -45,10 +45,11 @@ body {
 }
 
 aside.filters {
-    width: 250px;
+    max-width: 500px;
     background-color: #fff;
     padding: 20px;
     margin-right: 20px;
+    border-right: 1px solid #f0f1f5;
     
 }
 

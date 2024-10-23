@@ -84,7 +84,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Écouter les changements de filtres
     document.querySelector('#price-filter').addEventListener('input', function () {
-        document.querySelector('#price-value').textContent = `Max: ${this.value} FCFA`;
+        document.querySelector('#price-value').textContent = `${this.value} FCFA`;
         filterProducts();
     });
 
