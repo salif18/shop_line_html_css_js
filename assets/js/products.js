@@ -12,18 +12,6 @@ document.addEventListener("DOMContentLoaded", () => {
         return { selectedCategories, maxPrice, selectedRating, searchQuery };
     };
 
-    // Convertir les étoiles en valeurs numériques
-    const ratingToValue = (rating) => {
-        switch (parseInt(rating)) {
-            case 100: return 100;
-            case 80: return 80;
-            case 60: return 60;
-            case 40: return 40;
-            case 20: return 20;
-            default: return 0;
-        }
-    };
-
     // Filtrer les produits en fonction des critères sélectionnés
     const filterProducts = () => {
         const filters = getFilters();
@@ -41,7 +29,7 @@ document.addEventListener("DOMContentLoaded", () => {
             const matchesPrice = product.price <= filters.maxPrice;
 
             const matchesRating = filters.selectedRating === '' || 
-            (ratingToValue(product.rating) >= ratingToValue(filters.selectedRating) && ratingToValue(product.rating) <= 100);
+            (product.rating >= filters.selectedRating && product.rating <= 100);
 
             return matchesSearch && matchesCategory && matchesPrice && matchesRating;
         });
