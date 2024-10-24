@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     let isProfilVisible = false;
 
-    userBtn.addEventListener("mouseover", (e) => {
+    userBtn.addEventListener("click", (e) => {
         e.preventDefault();
 
         if (!isProfilVisible) {

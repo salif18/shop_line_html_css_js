@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
         productDetail.innerHTML = `    
             <h2>${product.name}</h2>
             <p class="price">${product.price} FCFA </p>
-            <div class="rating">${generatedStars(product.rating)} <span style="color: green;">(${product.rating})</span></div>
+            <div class="rating">${generatedStars(product.rating)}  <span style="color: green;">( ${product.rating} )</span></div>
             <h2 class="">${product.category}</h2>
             <h2 class="">${product.sousCategory}</h2>
             <h2 class="">${product.marque}</h2>
@@ -190,7 +190,8 @@ document.addEventListener('DOMContentLoaded', () => {
         star.addEventListener('click', function () {
             const rating = star.getAttribute('data-value');
             const formData ={
-                userI:token,
+                productId:productId,
+                userId:token,
                 rating:rating
             }
 
