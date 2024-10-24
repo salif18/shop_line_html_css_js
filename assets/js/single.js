@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
         productDetail.innerHTML = `    
             <h2>${product.name}</h2>
             <p class="price">${product.price} FCFA </p>
-            <div class="rating">${generated(product.rating)} (${product.rating})</div>
+            <div class="rating">${generatedStars(product.rating)} <span style="color: green;">(${product.rating})</span></div>
             <h2 class="">${product.category}</h2>
             <h2 class="">${product.sousCategory}</h2>
             <h2 class="">${product.marque}</h2>
@@ -70,25 +70,6 @@ document.addEventListener('DOMContentLoaded', () => {
     } else {
         productDetail.innerHTML = "<p>Produit non trouvé</p>";
     }
-
-    // regenrer les etoiles
-    function generated(rating) {
-        // Affichage des étoiles
-        const maxStars = 5;
-        const starRating = Math.round(rating / 20);
-        console.log("la note:",rating ,"etoiles:",starRating)
-        
-        let starsHtml = '';
-        // Générer les étoiles
-        for (let note = 1; note <= maxStars; note++) {
-              // Ajouter une étoile remplie si `note` est inférieur ou égal à la note calculée
-              starsHtml += (note <= starRating) 
-              ? '<span class="star filled">★</span>'  // Étoile remplie
-              : '<span class="star">★</span>';        // Étoile vide
-        }
-        return starsHtml; // Retourner toutes les étoiles en HTML
-    }
-
 
     // Fonction pour générer dynamiquement la galerie d'images
     function renderImageGallery(product) {
