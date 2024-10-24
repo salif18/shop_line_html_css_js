@@ -54,7 +54,11 @@ document.addEventListener("DOMContentLoaded", function () {
     // Fonction pour afficher les résultats de la recherche
     function displayResponseSearch(value) {
         // Filtrer les données en fonction de la valeur de recherche
-        const dataFilter = data.filter(item => item.name.toLowerCase().includes(value.toLowerCase()));
+        const dataFilter = data.filter(item => item.name.toLowerCase().includes(value.toLowerCase()) || 
+        item.category.toLowerCase().includes(value.toLowerCase()) ||
+        item.sousCategory.toLowerCase().includes(value.toLowerCase()) || 
+        item.marque.toLowerCase().includes(value.toLowerCase())
+      );
 
         zoneReponse.innerHTML = ''; // Vide la zone avant d'afficher les résultats
         titleResultat.innerHTML = "Résultats";
