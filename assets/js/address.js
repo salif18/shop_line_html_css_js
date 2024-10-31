@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
     const submitCommande = document.querySelector(".btn-submit-address");
-    
+
     // Sélection des éléments dans un objet
     const fields = {
         userName: document.querySelector(".myNom"),
@@ -60,7 +60,26 @@ document.addEventListener("DOMContentLoaded", function () {
                 Porte: fields.userPorte.value
             };
 
-            console.log("Tous les champs sont valides.", formData);
+            //    CREATION DE LA COMMANDE
+            const order = {
+                user: formData.Nom,
+                numero: formData.Numero,
+                email: formData.Email,
+                status: "En attente",
+                address: {
+                    ville: formData.Ville,
+                    rue: formData.Rue,
+                    porte: formData.Porte
+                },
+                total: cart.map((item) => item.price * item.qty).reduce((a, b) => a + b, 0),
+                cart: cart.map((item) => (
+                    { id: item.id, qty: item.qty, size: item.size }
+                )),
+                date: "12-10-2024"
+
+            }
+
+            console.log("Tous les champs sont valides.", order);
             // Tu peux maintenant envoyer formData via une requête AJAX ou Fetch si nécessaire
 
             // Réinitialiser les champs après l'envoi

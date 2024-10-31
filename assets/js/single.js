@@ -11,7 +11,6 @@ document.addEventListener('DOMContentLoaded', () => {
         const params = new URLSearchParams(window.location.search);
         return params.get('id');
     }
-
     // Récupérer l'ID du produit
     const productId = getProductIdFromUrl();
 
@@ -94,12 +93,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
         // Attache l'écouteur d'événements pour la taille ou la pointure sélectionnée
-        if(document.querySelector(`#chaussure-size`)){
+        if (document.querySelector(`#chaussure-size`)) {
             document.querySelector(`#chaussure-size`)?.addEventListener('change', (e) => {
                 selectedSize = e.target.value;
                 console.log("Nouvelle taille/pointure sélectionnée :", selectedSize);
             });
-        }else{
+        } else {
             document.querySelector(`#vetement-size`)?.addEventListener('change', (e) => {
                 selectedSize = e.target.value;
                 console.log("Nouvelle taille/pointure sélectionnée :", selectedSize);
@@ -114,8 +113,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 addToCart(product.id, selectedSize);
             }
         })
-        
-       
+
+
         renderImageGallery(product);
         productLier(product);
     } else {
@@ -163,7 +162,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 <div class="rating">${generatedStars(element.rating)}</div>
             </div>
         `;
-
         });
 
 
@@ -255,7 +253,5 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
     });
-
-
 
 });
