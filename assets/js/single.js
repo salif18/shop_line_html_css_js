@@ -107,11 +107,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         document.querySelector("#add-to-cart").addEventListener("click", (e) => {
             e.preventDefault();
-            if (!selectedSize) {
-                alert("Veuillez sélectionner une taille ou une pointure.");
-            } else {
                 addToCart(product.id, selectedSize);
-            }
         })
 
 
