@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (product) {
         // Assurez-vous que `selectedSize` a une valeur initiale.
         let selectedSize = "";
-        let sizeSelectorId = product.category === "Vetements" ? "vetement-size" : "chaussure-size";
+        // let sizeSelectorId = product.category === "Vetements" ? "vetement-size" : "chaussure-size";
 
         productDetail.innerHTML = `    
             <h2>${product.name}</h2>
@@ -34,8 +34,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
             <div class="product-options">
             ${product.category === "Vetements" ? `
-            <label for="${sizeSelectorId}">Taille:</label>
-            <select id="${sizeSelectorId}">
+            <label for="vetement-size">Taille:</label>
+            <select id="vetement-size">
                 <option class="size" value="S">S</option>
                 <option class="size" value="M">M</option>
                 <option class="size" value="L">L</option>
@@ -51,8 +51,8 @@ document.addEventListener('DOMContentLoaded', () => {
             ` : ''}
             
             ${product.category === "Chaussures" ? `
-            <label for="${sizeSelectorId}">Pointure:</label>
-            <select id="${sizeSelectorId}">
+            <label for="chaussure-size">Pointure:</label>
+            <select id="chaussure-size">
                 <option class="size" value="28">28</option>
                 <option class="size" value="30">30</option>
                 <option class="size" value="32">32</option>
@@ -92,6 +92,20 @@ document.addEventListener('DOMContentLoaded', () => {
         //         </select>
         //     </div>
 
+
+        // Attache l'écouteur d'événements pour la taille ou la pointure sélectionnée
+        if(document.querySelector(`#chaussure-size`)){
+            document.querySelector(`#chaussure-size`)?.addEventListener('change', (e) => {
+                selectedSize = e.target.value;
+                console.log("Nouvelle taille/pointure sélectionnée :", selectedSize);
+            });
+        }else{
+            document.querySelector(`#vetement-size`)?.addEventListener('change', (e) => {
+                selectedSize = e.target.value;
+                console.log("Nouvelle taille/pointure sélectionnée :", selectedSize);
+            });
+        }
+
         document.querySelector("#add-to-cart").addEventListener("click", (e) => {
             e.preventDefault();
             if (!selectedSize) {
@@ -100,13 +114,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 addToCart(product.id, selectedSize);
             }
         })
-
-
-        // Attache l'écouteur d'événements pour la taille ou la pointure sélectionnée
-        document.querySelector(`#${sizeSelectorId}`)?.addEventListener('change', (e) => {
-            selectedSize = e.target.value;
-            console.log("Nouvelle taille/pointure sélectionnée :", selectedSize);
-        });
+        
+       
         renderImageGallery(product);
         productLier(product);
     } else {
