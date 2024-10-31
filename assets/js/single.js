@@ -19,6 +19,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const product = data.find(p => p.id == productId);
 
     if (product) {
+        // Assurez-vous que `selectedSize` a une valeur initiale.
+        let selectedSize = "";
+        let sizeSelectorId = product.category === "Vetements" ? "vetement-size" : "chaussure-size";
+
         productDetail.innerHTML = `    
             <h2>${product.name}</h2>
             <p class="price">${product.price} FCFA </p>
@@ -29,24 +33,40 @@ document.addEventListener('DOMContentLoaded', () => {
             <p class="description">${product.description}</p>
 
             <div class="product-options">
-                <label for="size">Taille:</label>
-                <select id="size">
-                    <option value="S">S</option>
-                    <option value="M">M</option>
-                    <option value="L">L</option>
-                </select>
+            ${product.category === "Vetements" ? `
+            <label for="${sizeSelectorId}">Taille:</label>
+            <select id="${sizeSelectorId}">
+                <option class="size" value="S">S</option>
+                <option class="size" value="M">M</option>
+                <option class="size" value="L">L</option>
+                <option class="size" value="X">X</option>
+                <option class="size" value="28">28</option>
+                <option class="size" value="30">30</option>
+                <option class="size" value="32">32</option>
+                <option class="size" value="34">34</option>
+                <option class="size" value="36">36</option>
+                <option class="size" value="38">38</option>
+                <option class="size" value="40">40</option>
+            </select>
+            ` : ''}
+            
+            ${product.category === "Chaussures" ? `
+            <label for="${sizeSelectorId}">Pointure:</label>
+            <select id="${sizeSelectorId}">
+                <option class="size" value="28">28</option>
+                <option class="size" value="30">30</option>
+                <option class="size" value="32">32</option>
+                <option class="size" value="34">34</option>
+                <option class="size" value="36">36</option>
+                <option class="size" value="38">38</option>
+                <option class="size" value="40">40</option>
+                <option class="size" value="42">42</option>
+                <option class="size" value="44">44</option>
+            </select>
+            ` : ''}
             </div>
 
-            <div class="product-options">
-                <label for="color">Couleur:</label>
-                <select id="color">
-                    <option value="red">Rouge</option>
-                    <option value="blue">Bleu</option>
-                    <option value="green">Vert</option>
-                </select>
-            </div>
-
-            <button id="add-to-cart" onclick="addToCart(${product.id})">
+            <button id="add-to-cart">
                 Ajouter <i class="fas fa-shopping-cart"></i>
             </button>
 
@@ -63,13 +83,37 @@ document.addEventListener('DOMContentLoaded', () => {
             </section>
     
         `;
-        // Afficher la galerie d'images avec les images spécifiques du produit
+        // <div class="product-options">
+        //         <label for="color">Couleur:</label>
+        //         <select id="color">
+        //             <option value="red">Rouge</option>
+        //             <option value="blue">Bleu</option>
+        //             <option value="green">Vert</option>
+        //         </select>
+        //     </div>
+
+        document.querySelector("#add-to-cart").addEventListener("click", (e) => {
+            e.preventDefault();
+            if (!selectedSize) {
+                alert("Veuillez sélectionner une taille ou une pointure.");
+            } else {
+                addToCart(product.id, selectedSize);
+            }
+        })
+
+
+        // Attache l'écouteur d'événements pour la taille ou la pointure sélectionnée
+        document.querySelector(`#${sizeSelectorId}`)?.addEventListener('change', (e) => {
+            selectedSize = e.target.value;
+            console.log("Nouvelle taille/pointure sélectionnée :", selectedSize);
+        });
         renderImageGallery(product);
         productLier(product);
-
     } else {
         productDetail.innerHTML = "<p>Produit non trouvé</p>";
     }
+
+
 
     // Fonction pour générer dynamiquement la galerie d'images
     function renderImageGallery(product) {
@@ -110,7 +154,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 <div class="rating">${generatedStars(element.rating)}</div>
             </div>
         `;
-            
+
         });
 
 
@@ -131,14 +175,14 @@ document.addEventListener('DOMContentLoaded', () => {
         // Affichage des étoiles
         const maxStars = 5;
         const starRating = Math.round(rating / 20);
-     
+
         let starsHtml = '';
         // Générer les étoiles
         for (let note = 1; note <= maxStars; note++) {
-              // Ajouter une étoile remplie si `note` est inférieur ou égal à la note calculée
-              starsHtml += (note <= starRating) 
-              ? '<span class="star filled">★</span>'  // Étoile remplie
-              : '<span class="star">★</span>';        // Étoile vide
+            // Ajouter une étoile remplie si `note` est inférieur ou égal à la note calculée
+            starsHtml += (note <= starRating)
+                ? '<span class="star filled">★</span>'  // Étoile remplie
+                : '<span class="star">★</span>';        // Étoile vide
         }
         return starsHtml; // Retourner toutes les étoiles en HTML
     }
@@ -189,17 +233,20 @@ document.addEventListener('DOMContentLoaded', () => {
     stars.forEach(star => {
         star.addEventListener('click', function () {
             const rating = star.getAttribute('data-value');
-            const formData ={
-                productId:productId,
-                userId:token,
-                rating:rating
+            const formData = {
+                productId: productId,
+                userId: token,
+                rating: rating
             }
 
             updateStars(rating);
             // envoie vers server
-        console.log(formData)
+            console.log(formData)
             ratingMessage.textContent = `Vous avez donné une note de ${rating} étoiles.`;
         });
-        
+
     });
+
+
+
 });

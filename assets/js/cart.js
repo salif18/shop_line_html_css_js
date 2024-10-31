@@ -85,16 +85,17 @@ const displayCartData = () => {
 };
 
 // Fonction pour ajouter un produit au panier
-function addToCart(productId) {
+function addToCart(productId,size) {
     const product = data.find(p => p.id === productId);
-    const cartItem = cart.find(item => item.id === productId);
+    const cartItem = cart.find(item => item.id === productId); 
+    console.log(size)
 
     if (cartItem) {
         cartItem.qty += 1; // Si le produit est déjà dans le panier, augmenter la quantité
     } else if (product) {
-        cart=[...cart,{ ...product, qty: 1 }];
+        cart=[...cart,{ ...product, qty: 1 ,size: size}];
     }
-
+   console.log(cart)
     saveCart();
     displayCartData(); // Réafficher les données du panier
     calculeTotal(); // Recalculer le total
