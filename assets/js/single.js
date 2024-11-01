@@ -3,6 +3,8 @@ function changeImage(imgSrc) {
     document.querySelector('#main-image').src = imgSrc;
 }
 
+
+
 document.addEventListener('DOMContentLoaded', () => {
     const productDetail = document.querySelector(".product-info");
 
@@ -20,6 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (product) {
         // Assurez-vous que `selectedSize` a une valeur initiale.
         let selectedSize = "";
+        let selectedColor = "";
         // let sizeSelectorId = product.category === "Vetements" ? "vetement-size" : "chaussure-size";
 
         productDetail.innerHTML = `    
@@ -31,36 +34,33 @@ document.addEventListener('DOMContentLoaded', () => {
             <h2 class="">${product.marque}</h2>
             <p class="description">${product.description}</p>
 
+           ${product.otherColors.length > 0 ? `<div class="product-options">
+              <label for="color">Couleur:</label>
+               <select id="color">
+                     ${product.otherColors.map(element =>
+                    `<option class="size" value="${element.color}">${element.color}</option>`
+            ).join('')}
+                </select>
+             </div>`
+             :""
+             }
+
             <div class="product-options">
             ${product.category === "Vetements" ? `
             <label for="vetement-size">Taille:</label>
             <select id="vetement-size">
-                <option class="size" value="S">S</option>
-                <option class="size" value="M">M</option>
-                <option class="size" value="L">L</option>
-                <option class="size" value="X">X</option>
-                <option class="size" value="28">28</option>
-                <option class="size" value="30">30</option>
-                <option class="size" value="32">32</option>
-                <option class="size" value="34">34</option>
-                <option class="size" value="36">36</option>
-                <option class="size" value="38">38</option>
-                <option class="size" value="40">40</option>
+                 ${product.sizes.map(size =>
+                    `<option class="size" value="${size}">${size}</option>`
+            ).join('')}
             </select>
             ` : ''}
             
             ${product.category === "Chaussures" ? `
             <label for="chaussure-size">Pointure:</label>
             <select id="chaussure-size">
-                <option class="size" value="28">28</option>
-                <option class="size" value="30">30</option>
-                <option class="size" value="32">32</option>
-                <option class="size" value="34">34</option>
-                <option class="size" value="36">36</option>
-                <option class="size" value="38">38</option>
-                <option class="size" value="40">40</option>
-                <option class="size" value="42">42</option>
-                <option class="size" value="44">44</option>
+                ${product.sizes.map(size =>
+                    `<option class="size" value="${size}">${size}</option>`
+            ).join('')}
             </select>
             ` : ''}
             </div>
@@ -82,17 +82,15 @@ document.addEventListener('DOMContentLoaded', () => {
             </section>
     
         `;
-        // <div class="product-options">
-        //         <label for="color">Couleur:</label>
-        //         <select id="color">
-        //             <option value="red">Rouge</option>
-        //             <option value="blue">Bleu</option>
-        //             <option value="green">Vert</option>
-        //         </select>
-        //     </div>
+
+        // Controlleur de couleur
+        document.querySelector(`#color`)?.addEventListener('change', (e) => {
+            selectedColor = e.target.value;
+            console.log("Nouvelle taille/pointure sélectionnée :", selectedColor);
+        });
 
 
-        // Attache l'écouteur d'événements pour la taille ou la pointure sélectionnée
+        //controlleur Attache l'écouteur d'événements pour la taille ou la pointure sélectionnée
         if (document.querySelector(`#chaussure-size`)) {
             document.querySelector(`#chaussure-size`)?.addEventListener('change', (e) => {
                 selectedSize = e.target.value;
@@ -105,9 +103,10 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }
 
+        // attacher evenement dajout de cart
         document.querySelector("#add-to-cart").addEventListener("click", (e) => {
             e.preventDefault();
-                addToCart(product.id, selectedSize);
+            addToCart(product.id, selectedSize, selectedColor);
         })
 
 
@@ -124,12 +123,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const productImageContainer = document.querySelector(".product-images");
         productImageContainer.innerHTML = `
+        <div>
             <img id="main-image" src="${product.img}" alt="Produit">
             <div class="image-gallery">
                 ${product.gallery.map(src =>
             `<img src="${src}" alt="Produit" class="thumbnail" onclick="changeImage('${src}')">`
         ).join('')}
             </div>
+        </div>
+        <div class="color-options">
+          ${product. otherColors.map(element =>
+                `<button class="color-swatch" style="background-color: ${element.color};" data-image="${element.image}" onclick="changeImage('${element.image}')"></button>`
+            ).join('')}
+        </div>
         `;
     }
     // Fonction pour afficher les produits liés
@@ -249,5 +255,14 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
     });
+
+    // changement de couleur du produit
+    document.querySelectorAll(".color-swatch").forEach((button) => {
+        button.addEventListener("click", (event) => {
+            const imageSource = event.target.getAttribute("data-image");
+            document.getElementById("main-image").src = imageSource;
+        });
+    });
+
 
 });

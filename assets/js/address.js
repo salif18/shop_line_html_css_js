@@ -62,9 +62,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
             //    CREATION DE LA COMMANDE
             const order = {
-                user: formData.Nom,
+                client: {
+                nom: formData.Nom,
                 numero: formData.Numero,
                 email: formData.Email,
+                },
                 status: "En attente",
                 address: {
                     ville: formData.Ville,
@@ -73,7 +75,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 },
                 total: cart.map((item) => item.price * item.qty).reduce((a, b) => a + b, 0),
                 cart: cart.map((item) => (
-                    { id: item.id, qty: item.qty, size: item.size }
+                    { id: item.id, qty: item.qty, size: item.size ,color:item.color}
                 )),
                 date: "12-10-2024"
 
