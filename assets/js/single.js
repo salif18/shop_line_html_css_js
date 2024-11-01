@@ -1,8 +1,7 @@
 // Fonction pour changer l'image principale en fonction de l'image sélectionnée
-function changeImage(imgSrc) {
+const changeImage=(imgSrc)=>{
     document.querySelector('#main-image').src = imgSrc;
 }
-
 
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -34,35 +33,36 @@ document.addEventListener('DOMContentLoaded', () => {
             <h2 class="">${product.marque}</h2>
             <p class="description">${product.description}</p>
 
-           ${product.otherColors.length > 0 ? `<div class="product-options">
-              <label for="color">Couleur:</label>
-               <select id="color">
+           ${product.otherColors.length > 0 ? 
+             `<div class="product-options">
+               <label for="color">Couleur:</label>
+                <select id="color">
                      ${product.otherColors.map(element =>
                     `<option class="size" value="${element.color}">${element.color}</option>`
-            ).join('')}
+                     ).join('')}
                 </select>
              </div>`
              :""
-             }
+            }
 
             <div class="product-options">
-            ${product.category === "Vetements" ? `
-            <label for="vetement-size">Taille:</label>
-            <select id="vetement-size">
+              ${product.category === "Vetements" ? 
+               `<label for="vetement-size">Taille:</label>
+                 <select id="vetement-size">
                  ${product.sizes.map(size =>
                     `<option class="size" value="${size}">${size}</option>`
-            ).join('')}
-            </select>
-            ` : ''}
+                   ).join('')}
+                 </select>
+               ` : ''}
             
-            ${product.category === "Chaussures" ? `
-            <label for="chaussure-size">Pointure:</label>
-            <select id="chaussure-size">
-                ${product.sizes.map(size =>
+              ${product.category === "Chaussures" ? 
+               `<label for="chaussure-size">Pointure:</label>
+                 <select id="chaussure-size">
+                 ${product.sizes.map(size =>
                     `<option class="size" value="${size}">${size}</option>`
-            ).join('')}
-            </select>
-            ` : ''}
+                  ).join('')}
+                </select>
+               ` : ''}
             </div>
 
             <button id="add-to-cart">
