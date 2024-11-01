@@ -59,7 +59,7 @@ body {
     align-items: center;
     justify-content: center;
     margin-top: 25px;
-    border: 2px solid #202020;
+    /* border: 2px solid #202020; */
     border-radius: 20px;
 }
 
@@ -88,9 +88,12 @@ body {
     width: 50px;
     height: 50px;
     border-radius: 50%;
-    /* border: none; */
     border: 1px solid #dbdbdb;
     cursor: pointer;
+  }
+  .color-swatch:hover{
+    border: 2px solid rgb(0, 0, 0);
+    
   }
 
 /* Product Info */
